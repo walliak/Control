@@ -1,0 +1,240 @@
+C51 COMPILER V9.00   MAIN                                                                  03/08/2019 17:53:10 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: D:\KeilC51\C51\BIN\C51.EXE main.c BROWSE INCDIR(..\ADC_DAC实验) DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /////////////////////////////////////
+   2          //  Generated Initialization File  //
+   3          /////////////////////////////////////
+   4          
+   5          #include "C8051F020.h"
+   6          #include "lcd.h"
+   7          #include "key.h"
+   8          #include "adc.h"
+   9          #include "math.h"
+  10          
+  11          // Peripheral specific initialization functions,
+  12          // Called from the Init_Device() function
+  13          void Reset_Sources_Init()
+  14          {
+  15   1          WDTCN     = 0xDE;
+  16   1          WDTCN     = 0xAD;
+  17   1          RSTSRC    = 0x04;
+  18   1      }
+  19          
+  20          void Timer_Init()
+  21          {
+  22   1          CKCON     = 0x20;
+  23   1          TMR3CN    = 0x06;
+  24   1          TMR3RLL   = 0xA0;
+  25   1          TMR3RLH   = 0xFF;
+  26   1      }
+  27          
+  28          void ADC_Init()
+  29          {
+  30   1          ADC0CN    = 0x84;
+  31   1      }
+  32          
+  33          void DAC_Init()
+  34          {
+  35   1          DAC0CN    = 0x88;
+  36   1          DAC1CN    = 0x80;
+  37   1      }
+  38          
+  39          void Voltage_Reference_Init()
+  40          {
+  41   1          REF0CN    = 0x03;
+  42   1      }
+  43          
+  44          void Port_IO_Init()
+  45          {
+  46   1          // P0.0  -  Unassigned,  Open-Drain, Digital
+  47   1          // P0.1  -  Unassigned,  Open-Drain, Digital
+  48   1          // P0.2  -  Unassigned,  Open-Drain, Digital
+  49   1          // P0.3  -  Unassigned,  Open-Drain, Digital
+  50   1          // P0.4  -  Unassigned,  Open-Drain, Digital
+  51   1          // P0.5  -  Unassigned,  Open-Drain, Digital
+  52   1          // P0.6  -  Unassigned,  Open-Drain, Digital
+  53   1          // P0.7  -  Unassigned,  Open-Drain, Digital
+  54   1      
+  55   1          // P1.0  -  Unassigned,  Open-Drain, Digital
+C51 COMPILER V9.00   MAIN                                                                  03/08/2019 17:53:10 PAGE 2   
+
+  56   1          // P1.1  -  Unassigned,  Open-Drain, Digital
+  57   1          // P1.2  -  Unassigned,  Open-Drain, Digital
+  58   1          // P1.3  -  Unassigned,  Open-Drain, Digital
+  59   1          // P1.4  -  Unassigned,  Open-Drain, Digital
+  60   1          // P1.5  -  Unassigned,  Open-Drain, Digital
+  61   1          // P1.6  -  Unassigned,  Open-Drain, Digital
+  62   1          // P1.7  -  Unassigned,  Open-Drain, Digital
+  63   1      
+  64   1          // P2.0  -  Unassigned,  Open-Drain, Digital
+  65   1          // P2.1  -  Unassigned,  Open-Drain, Digital
+  66   1          // P2.2  -  Unassigned,  Open-Drain, Digital
+  67   1          // P2.3  -  Unassigned,  Open-Drain, Digital
+  68   1          // P2.4  -  Unassigned,  Open-Drain, Digital
+  69   1          // P2.5  -  Unassigned,  Open-Drain, Digital
+  70   1          // P2.6  -  Unassigned,  Open-Drain, Digital
+  71   1          // P2.7  -  Unassigned,  Open-Drain, Digital
+  72   1      
+  73   1          // P3.0  -  Unassigned,  Open-Drain, Digital
+  74   1          // P3.1  -  Unassigned,  Open-Drain, Digital
+  75   1          // P3.2  -  Unassigned,  Open-Drain, Digital
+  76   1          // P3.3  -  Unassigned,  Open-Drain, Digital
+  77   1          // P3.4  -  Unassigned,  Push-Pull,  Digital
+  78   1          // P3.5  -  Unassigned,  Push-Pull,  Digital
+  79   1          // P3.6  -  Unassigned,  Open-Drain, Digital
+  80   1          // P3.7  -  Unassigned,  Open-Drain, Digital
+  81   1      
+  82   1          P3MDOUT   = 0x30;
+  83   1          XBR2      = 0x40;
+  84   1      }
+  85          
+  86          void Oscillator_Init()
+  87          {
+  88   1          int i = 0;
+  89   1          OSCXCN    = 0x67;
+  90   1          for (i = 0; i < 3000; i++);  // Wait 1ms for initialization
+  91   1          while ((OSCXCN & 0x80) == 0);
+  92   1          OSCICN    = 0x08;
+  93   1      }
+  94          
+  95          void Interrupts_Init()
+  96          {
+  97   1          IE        = 0x80;
+  98   1          EIE2      = 0x03;
+  99   1      }
+ 100          
+ 101          // Initialization function for device,
+ 102          // Call Init_Device() from your main program
+ 103          void Init_Device(void)
+ 104          {
+ 105   1          Reset_Sources_Init();
+ 106   1          Timer_Init();
+ 107   1          ADC_Init();
+ 108   1          DAC_Init();
+ 109   1          Voltage_Reference_Init();
+ 110   1          Port_IO_Init();
+ 111   1          Oscillator_Init();
+ 112   1          Interrupts_Init();
+ 113   1      }
+ 114          
+ 115          
+ 116          main()
+ 117          {
+C51 COMPILER V9.00   MAIN                                                                  03/08/2019 17:53:10 PAGE 3   
+
+ 118   1      
+ 119   1               unsigned char key=0,flag=0;
+ 120   1               unsigned int i=0;
+ 121   1               Init_Device();
+ 122   1           for(i=0;i<1000;i++)
+ 123   1               adcmem[i]=0;
+ 124   1               newLCDInit();
+ 125   1               Clear();
+ 126   1               LCDWrite(W_CMD,0xA7);    //反显命令  
+ 127   1           DrawcharS("Project-1",1,4);
+ 128   1           DrawcharS("3.7--3.14",2,4);        
+ 129   1               for(i=0;i<255;i++)
+ 130   1                      {
+ 131   2                              Delayms(100);
+ 132   2                      }
+ 133   1               LCDWrite(W_CMD,0xA6);    //正常显命令           
+ 134   1               Clear();                                 //清屏
+ 135   1      
+ 136   1      
+ 137   1               while(1)
+ 138   1               {
+ 139   2      
+ 140   2                 DrawcharS("press the button",1,0);
+ 141   2                 DrawcharS("----------------",2,0);
+ 142   2             key = KeyScan();
+ 143   2                      if(key != 0)
+ 144   2                      {
+ 145   3                              switch(key)
+ 146   3                              {
+ 147   4                                      //显示数字
+ 148   4                                 case 1:      Clear();flag=0;
+ 149   4                                                      while(1){
+ 150   5                                                              DrawcharS("0123456789",0,0);  
+ 151   5                                                              flag=keyScan();
+*** WARNING C206 IN LINE 151 OF MAIN.C: 'keyScan': missing function-prototype
+ 152   5                                                              if(flag==9)
+ 153   5                                                              break;
+ 154   5                                                      }
+ 155   4                                          Clear();
+ 156   4                                                      break;
+ 157   4                                      //显示字母
+ 158   4                                 case 2:  Clear();flag=0;
+ 159   4                                                      while(1){
+ 160   5                                                              DrawcharS("abcdefghijklmnopqrstuvwxyz",0,0); 
+ 161   5                                                              flag=keyScan();
+ 162   5                                                              if(flag==9)
+ 163   5                                                              break;
+ 164   5                                                      }
+ 165   4                                          Clear();
+ 166   4                                                      break;
+ 167   4                                      //显示三角形
+ 168   4                                 case 3:      Clear();flag=0;
+ 169   4                                                      while(1){
+ 170   5                                                              for(i=0;i<64;i++)
+ 171   5                                                          DrawPoint(i,i);
+ 172   5                                                  for(i=64;i<127;i++)
+ 173   5                                                          DrawPoint(i,127-i);
+ 174   5                                                              flag=keyScan();
+ 175   5                                                              if(flag==9)
+ 176   5                                                              break;
+ 177   5                                                      }
+ 178   4                                          Clear();
+C51 COMPILER V9.00   MAIN                                                                  03/08/2019 17:53:10 PAGE 4   
+
+ 179   4                                                      break;
+ 180   4                                      //显示正弦波
+ 181   4                                 case 4:  Clear();flag=0;
+ 182   4                                                      while(1){
+ 183   5                                                              for(i=0;i<128;i++)
+ 184   5                                                              DrawPoint(i,(sintab[i%100])>>6);
+ 185   5                                                              flag=keyScan();
+ 186   5                                                              if(flag==9)
+ 187   5                                                              break;
+ 188   5                                                      }
+ 189   4                                                  Clear();
+ 190   4                                                      break;
+ 191   4                                      //显示十字
+ 192   4                                 case 5:      Clear();flag=0;
+ 193   4                                                      while(1){
+ 194   5                                                              for(i=0;i<127;i++)              
+ 195   5                                                              DrawPoint(i,31);
+ 196   5                                                  for(i=0;i<64;i++)                                           
+ 197   5                                                              DrawPoint(63,i);                                                
+ 198   5                                                              flag=keyScan();
+ 199   5                                                              if(flag==9)
+ 200   5                                                              break;
+ 201   5                                                      }
+ 202   4                                                      Clear();
+ 203   4                                                      break;
+ 204   4                                      //默认返回
+ 205   4                                 default:  break;
+ 206   4                              }
+ 207   3                       key=0;
+ 208   3                  }
+ 209   2               }
+ 210   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    620    ----
+   CONSTANT SIZE    =     92    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

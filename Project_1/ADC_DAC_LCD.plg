@@ -1,0 +1,26 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+E:\WindowsDesktop\Control\F020_LCD测试程序 (1)\ADC_DAC实验\ADC_DAC_LCD.uvproj
+Project File Date:  03/07/2019
+
+<h2>Output:</h2>
+compiling main.c...
+MAIN.C(151): warning C206: 'keyScan': missing function-prototype
+main.c - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_LCD_DRAW_POINT?LCD
+Program Size: data=38.0 xdata=2000 code=4534
+creating hex file from "ADC_DAC_LCD"...
+"ADC_DAC_LCD" - 0 Error(s), 1 Warning(s).
+Load "E:\\WindowsDesktop\\Control\\F020_LCD测试程序 (1)\\ADC_DAC实验\\ADC_DAC_LCD" 
+Flash Erase Done.
+Flash Image Update Complete. 
+Beginning programming...
+Flash Program Done: 4534 bytes programmed.
+Checksum:0xe532
+Flash Verify Done: 4534 bytes verified.

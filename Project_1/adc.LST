@@ -1,0 +1,52 @@
+C51 COMPILER V9.00   ADC                                                                   03/07/2019 20:18:40 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE ADC
+OBJECT MODULE PLACED IN adc.OBJ
+COMPILER INVOKED BY: D:\KeilC51\C51\BIN\C51.EXE adc.c BROWSE INCDIR(..\ADC_DAC实验) DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "C8051F020.h"
+   2          #include "adc.h"
+   3          //正弦波数据表,俺用wps的表格功能算的哟！
+   4          code unsigned  int sintab[100]={2048 ,2178 ,2307 ,2436 ,2562 ,2687 ,2809 ,2928 ,3044 ,3155 ,3262 ,3364 ,34
+             -61 ,3552 ,3638 ,3716 ,3788 ,3853 ,3911 ,3961 ,4004 ,4038 ,4065 ,4083 ,4094 ,4095 ,4090 ,4075 ,4053 ,4022 ,3983 ,3937 ,38
+             -83 ,3822 ,3753 ,3678 ,3596 ,3508 ,3414 ,3314 ,3209 ,3100 ,2986 ,2869 ,2748 ,2625 ,2499 ,2372 ,2243 ,2113 ,1983 ,1853 ,17
+             -24 ,1597 ,1471 ,1348 ,1227 ,1110 ,996 ,887 ,782 ,682 ,588 ,500 ,418 ,343 ,274 ,213 ,159 ,113 ,74 ,43 ,21 ,6 ,0 ,2 ,13 ,3
+             -1 ,58 ,92 ,135 ,185 ,243 ,308 ,380 ,458 ,544 ,635 ,732 ,834 ,941 ,1052 ,1168 ,1287 ,1409 ,1534 ,1660 ,1789 ,1918 ,2048 }
+             -;
+   5          
+   6          sfr16 ADC0     = 0xbe;                 // ADC0 data
+   7          
+   8          int xdata adcmem[1000];
+   9          int k=0;
+  10          void TIMER3_ISR(void) interrupt 14         //TIME3 
+  11          {
+  12   1         TMR3CN &= ~0x80;                    // acknowledge interrupt
+  13   1      }
+  14          void ADC0_ISR(void) interrupt 15           //ADC0 
+  15          {
+  16   1         AD0INT = 0;                         //clear ADC conversion complete overflow   
+  17   1         DAC0L=ADC0L;
+  18   1         DAC0H=ADC0H;
+  19   1         k++;
+  20   1         if(k>999)k=0;
+  21   1         adcmem[k]=ADC0;
+  22   1         DAC1L=sintab[k/10];
+  23   1         DAC1H=(sintab[k/10])>>8;
+  24   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    146    ----
+   CONSTANT SIZE    =    200    ----
+   XDATA SIZE       =   2000    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
