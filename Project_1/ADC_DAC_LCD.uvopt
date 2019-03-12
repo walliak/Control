@@ -215,12 +215,12 @@
       <GroupNumber>1</GroupNumber>
       <FileNumber>2</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>115</ColumnNumber>
+      <ColumnNumber>20</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>313</TopLine>
-      <CurrentLine>313</CurrentLine>
+      <TopLine>899</TopLine>
+      <CurrentLine>899</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\lcd.c</PathWithFileName>
       <FilenameWithoutPath>lcd.c</FilenameWithoutPath>
@@ -231,10 +231,10 @@
       <FileType>1</FileType>
       <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>29</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>1</CurrentLine>
+      <TopLine>191</TopLine>
+      <CurrentLine>208</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -294,9 +294,9 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>E:\WindowsDesktop\Control\F020_LCD测试程序 (1)\ADC_DAC实验\LCD.H</PathWithFilename>
+    <PathWithFilename>E:\WindowsDesktop\Control\Project_1\LCD.H</PathWithFilename>
     <TopLine>1</TopLine>
-    <CurrentLine>1</CurrentLine>
+    <CurrentLine>28</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -1657,34 +1657,34 @@
 
   <MDIGroups>
     <Orientation>3</Orientation>
-    <ActiveMDIGroup>1</ActiveMDIGroup>
+    <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
-      <Size>25</Size>
-      <ActiveTab>1</ActiveTab>
+      <Size>71</Size>
+      <ActiveTab>0</ActiveTab>
       <Documents>
         <Doc>
-          <Name>LCD.H</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>1</CurrentLine>
+          <Name>.\lcd.c</Name>
+          <ColumnNumber>20</ColumnNumber>
+          <TopLine>899</TopLine>
+          <CurrentLine>899</CurrentLine>
         </Doc>
         <Doc>
-          <Name>.\lcd.c</Name>
-          <ColumnNumber>115</ColumnNumber>
-          <TopLine>313</TopLine>
-          <CurrentLine>313</CurrentLine>
+          <Name>LCD.H</Name>
+          <ColumnNumber>19</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>28</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>
     <MDIGroup>
-      <Size>75</Size>
+      <Size>29</Size>
       <ActiveTab>0</ActiveTab>
       <Documents>
         <Doc>
           <Name>.\main.c</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>1</CurrentLine>
+          <ColumnNumber>29</ColumnNumber>
+          <TopLine>191</TopLine>
+          <CurrentLine>208</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

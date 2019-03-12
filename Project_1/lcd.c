@@ -3,12 +3,45 @@
 #include <math.h>
 //#include <DataType.h>
 #include "lcd.h"
+//#include "hanzi.h"
+							   
+/******************************
+12864LCD屏
+宽*高=64*128个像素点
 
+********************************/
 
+sbit  SCK=  P3^4;
+sbit  SDA=  P3^5;
 
-sbit	SCK= 		    P3^4;
-sbit	SDA=			P3^5;
+const unsigned char code Fix[32]={
+		0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+		0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x80,0x40,0x20,0x10,0x08,0x04,0x02,0x01,
+	};
 
+const unsigned char code DzkCode[7][32]={
+	/* 0xCAAF [石]   [0]*/
+		0xC0,0x40,0x60,0x50,0x4B,0x4D,0x73,0x41,0x41,0x41,0x41,0x41,0x41,0x40,0x40,0x00,
+		0x10,0x20,0x40,0x80,0xFF,0x02,0x02,0x02,0x82,0x42,0x22,0x12,0xFF,0x04,0x02,0x01,
+	/* 0xF6CE [鑫]   [1]*/
+		0x90,0x50,0x31,0x35,0x3F,0x55,0x57,0x9F,0x55,0x55,0x37,0x25,0x11,0x10,0x10,0x00,
+		0x11,0x2B,0x69,0xBF,0x69,0x2B,0x11,0x00,0x91,0x6B,0x69,0xBF,0x69,0x2F,0x13,0x01,
+	/* 0xB1F3 [斌]   [2]*/
+		0x88,0x49,0x68,0x38,0x0F,0x0C,0x06,0x25,0x25,0x24,0x04,0xFF,0x04,0x44,0x34,0x00,
+		0x02,0x04,0x98,0x60,0x9C,0x02,0x7F,0x02,0xFC,0x44,0x24,0xF0,0x0C,0x06,0x0F,0x01,
+	/* 0xD5C5 [张]   [3]*/
+		0xC0,0x47,0x64,0x54,0x7C,0x05,0x03,0xFF,0x01,0x05,0x09,0x11,0x61,0x01,0x01,0x00,
+		0x00,0xC2,0x41,0x42,0x7C,0x00,0x00,0xFF,0x82,0xC4,0x60,0x10,0x08,0x04,0x02,0x01,
+	/* 0xD0C0 [欣]   [4]*/
+		0x80,0x40,0x3F,0x32,0x2A,0x47,0xC2,0x43,0x04,0x18,0xF0,0x13,0x10,0x14,0x18,0x00,
+		0x01,0x06,0xF8,0x00,0x00,0xFE,0x00,0x01,0x82,0x4C,0x30,0xD0,0x38,0x06,0x03,0x01,
+	/* 0xC2B3 [鲁]   [5]*/
+		0x88,0x50,0x3F,0x55,0xDD,0x55,0x57,0x5F,0x55,0x55,0x75,0x15,0x1F,0x00,0x00,0x00,
+		0x40,0x40,0x40,0x5F,0x55,0x55,0x55,0x55,0xD5,0x55,0x75,0x5F,0x48,0x44,0x42,0x01,
+	/* 0xBAE3 [恒]   [6]*/
+		0x80,0x47,0x20,0xFF,0x08,0x04,0x42,0x4F,0x49,0x49,0x49,0x49,0x49,0x4F,0x40,0x00,
+		0x80,0x00,0x00,0xFF,0x00,0x00,0x02,0xF2,0xA2,0x62,0x22,0x32,0x2A,0xF6,0x02,0x01,
+	};
 //extern const unsigned char code AsciiFontData[95][16];
 const unsigned char code AsciiFontData[95][16]	=
 {
@@ -603,7 +636,7 @@ void LCD_setXY(unsigned char X, unsigned char Y)	   //设置LCD坐标函数X：0－127  
 }
 
 
-void LCD_draw_point(unsigned char x,unsigned char y)    // 左上角为原点哟！ X：0－127  Y：0－7 位置画点  一次一列八个点哟！ 
+void LCD_draw_point(unsigned char x,unsigned char y)    // 左下为原点！ X：0－127  Y：0－7 位置画点  一次一列八个点哟！ 
 {
 	LCD_setXY(x,y);
 	LCDWrite(W_DAT,0xff) ;
@@ -678,10 +711,10 @@ void DrawPoint(unsigned char x,unsigned char y)		//连续操作同一显示字节时,保留原
 
 
 /*********************************************************************
-*在屏幕上显示一个字符
+*在屏幕上显示一个字符（16*8个点，共16字节）
 *参数：C字符  	row 行:0~3  col 列:0~15
 *********************************************************************/
-void Drawchar(unsigned char C,unsigned char row,unsigned char col)		  //row 行:0~3  col 列:0~15   每个字符占LCD 16*8个点	 左上角原点
+void Drawchar(unsigned char C,unsigned char row,unsigned char col)		  	 
 {	
     unsigned char b,Row,Col;
     unsigned char k;
@@ -786,5 +819,202 @@ void DrawcharS(unsigned char *C,unsigned char row,unsigned char col)		//每行最多
 
 }
 
+/***********************************************
+*汉字带斜线
+
+*在屏幕上显示一个汉字（16*16个点，共32个字节）
+*参数： C为汉字在DzkCode中的下标位置，
+		row 在LCD屏上显示的行 0-3；
+		col 在LCD屏上显示的列 0-7；
+*扫描方式：纵向--先左右后上下
+		   高位在前
+
+**********************************************/
+void Drawhanzi(unsigned char C,unsigned char row,unsigned char col)		  //row 行:0~3  col 列:0~7   每个汉字占16*16个点	 左上角原点
+{	
+    unsigned char b,Row,Col;
+    unsigned char k;
+	k=C;
+	Row=(63-(16*row));
+	Col=16*col;
+
+		for(b = 0;b<32;b++)
+	{
+	 if(b<16)
+	 {
+	  if((DzkCode[k][b]&0x80)!=0)
+	  DrawPoint(Col+b,Row);
+	  	
+	  
+	  if((DzkCode[k][b]&0x40)!=0)
+	  DrawPoint(Col+b,Row-1);
+	   	
+	  if((DzkCode[k][b]&0x20)!=0)
+	  DrawPoint(Col+b,Row-2);
+	   	
+	  if((DzkCode[k][b]&0x10)!=0)
+	  DrawPoint(Col+b,Row-3);
+
+	  if((DzkCode[k][b]&0x08)!=0)
+	  DrawPoint(Col+b,Row-4);
+	  	
+	  if((DzkCode[k][b]&0x04)!=0)
+	  DrawPoint(Col+b,Row-5);
+	   
+	  if((DzkCode[k][b]&0x02)!=0)
+      DrawPoint(Col+b,Row-6);
+	  	
+	  if((DzkCode[k][b]&0x01)!=0)
+	  DrawPoint(Col+b,Row-7);
+	  }
+	  else
+	  {
+	   if((DzkCode[k][b]&0x80)!=0)
+	  DrawPoint(Col+b-16,Row-8);
+	  	
+	  
+	  if((DzkCode[k][b]&0x40)!=0)
+	  DrawPoint(Col+b-16,Row-9);
+	   	
+	  if((DzkCode[k][b]&0x20)!=0)
+	  DrawPoint(Col+b-16,Row-10);
+	   	
+	  if((DzkCode[k][b]&0x10)!=0)
+	  DrawPoint(Col+b-16,Row-11);
+
+	  if((DzkCode[k][b]&0x08)!=0)
+	  DrawPoint(Col+b-16,Row-12);
+	  	
+	  if((DzkCode[k][b]&0x04)!=0)
+	  DrawPoint(Col+b-16,Row-13);
+	   
+	  if((DzkCode[k][b]&0x02)!=0)
+      DrawPoint(Col+b-16,Row-14);
+	  	
+	  if((DzkCode[k][b]&0x01)!=0)
+	  DrawPoint(Col+b-16,Row-15);
+	  }	  
+	
+	}
+}
+
+/***********************************************
+*汉字无斜线
+
+*在屏幕上显示一个汉字（16*16个点，共32个字节）
+*参数： C为汉字在DzkCode中的下标位置，
+		row 在LCD屏上显示的行 0-3；
+		col 在LCD屏上显示的列 0-7；
+*扫描方式：纵向--先左右后上下
+		   高位在前
+
+**********************************************/
+void Drawhanzifix(unsigned char C,unsigned char row,unsigned char col)		  //row 行:0~3  col 列:0~7   每个汉字占16*16个点	 左上角原点
+{	
+    unsigned char b,Row,Col;
+    unsigned char k;
+	k=C;
+	Row=(63-(16*row));
+	Col=16*col;
+
+		for(b = 0;b<32;b++)
+	{
+	 if(b<16)
+	 {
+	  if(((DzkCode[k][b]-Fix[b])&0x80)!=0)
+	  DrawPoint(Col+b,Row);
+	  	
+	  
+	  if(((DzkCode[k][b]-Fix[b])&0x40)!=0)
+	  DrawPoint(Col+b,Row-1);
+	   	
+	  if(((DzkCode[k][b]-Fix[b])&0x20)!=0)
+	  DrawPoint(Col+b,Row-2);
+	   	
+	  if(((DzkCode[k][b]-Fix[b])&0x10)!=0)
+	  DrawPoint(Col+b,Row-3);
+
+	  if(((DzkCode[k][b]-Fix[b])&0x08)!=0)
+	  DrawPoint(Col+b,Row-4);
+	  	
+	  if(((DzkCode[k][b]-Fix[b])&0x04)!=0)
+	  DrawPoint(Col+b,Row-5);
+	   
+	  if(((DzkCode[k][b]-Fix[b])&0x02)!=0)
+      DrawPoint(Col+b,Row-6);
+	  	
+	  if(((DzkCode[k][b]-Fix[b])&0x01)!=0)
+	  DrawPoint(Col+b,Row-7);
+	  }
+	  else
+	  {
+	   if(((DzkCode[k][b]-Fix[b])&0x80)!=0)
+	  DrawPoint(Col+b-16,Row-8);
+	  	
+	  
+	  if(((DzkCode[k][b]-Fix[b])&0x40)!=0)
+	  DrawPoint(Col+b-16,Row-9);
+	   	
+	  if(((DzkCode[k][b]-Fix[b])&0x20)!=0)
+	  DrawPoint(Col+b-16,Row-10);
+	   	
+	  if(((DzkCode[k][b]-Fix[b])&0x10)!=0)
+	  DrawPoint(Col+b-16,Row-11);
+
+	  if(((DzkCode[k][b]-Fix[b])&0x08)!=0)
+	  DrawPoint(Col+b-16,Row-12);
+	  	
+	  if(((DzkCode[k][b]-Fix[b])&0x04)!=0)
+	  DrawPoint(Col+b-16,Row-13);
+	   
+	  if(((DzkCode[k][b]-Fix[b])&0x02)!=0)
+      DrawPoint(Col+b-16,Row-14);
+	  	
+	  if(((DzkCode[k][b]-Fix[b])&0x01)!=0)
+	  DrawPoint(Col+b-16,Row-15);
+	  }	  
+	
+	}
+}
+
+/***********************************************
+*显示一行汉字
+
+*参数： C为一串下标位置，
+		row 在LCD屏上显示的行 0-3；
+		col 在LCD屏上显示的列 0-7；
+
+*每行最多显示8个汉字，自动换行
+
+**********************************************/
+void DrawhanziS(unsigned char *C,unsigned char row,unsigned char col)	
+{
+  int flag=0,i=0;
+  unsigned char R,L,TOTAL;
+  TOTAL=(row*8)+col;
+  if(TOTAL>63||row>3||col>15)
+   {flag=1;}
+
+  while(flag==0)
+  {
+   if(*C!='\0')
+   {
+     R=	(TOTAL+i)/8 ;
+   	 L=	(TOTAL+i)%8;
+	 Drawhanzifix(*C,R,L);
+	 C++;
+	 i++;
+	 if((TOTAL+i)>63)
+	  {
+	   	 flag=1;
+	  }
+   }
+   else
+   {
+     flag=1;
+   }
+ }
+
+}
 
 

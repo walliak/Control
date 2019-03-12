@@ -21,5 +21,10 @@
 	void DrawcharS(unsigned char *C,unsigned char row,unsigned char col);
 
 
+	void Drawhanzi(unsigned char C,unsigned char row,unsigned char col);
+	void Drawhanzifix(unsigned char C,unsigned char row,unsigned char col);	
+		 
+	void DrawhanziS(unsigned char *C,unsigned char row,unsigned char col);
+	void DrawhanzifixS(unsigned char C,unsigned char row,unsigned char col);		 
 
 #endif

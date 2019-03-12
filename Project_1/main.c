@@ -147,7 +147,8 @@ main()
 				//ÏÔÊ¾Êý×Ö
 			   case 1:	Clear();flag=0;
 			   			while(1){
-							DrawcharS("0123456789",0,0);  
+							DrawcharS("0123456789",0,0);
+							 
 							flag=keyScan();
 							if(flag==9)
 							break;
@@ -195,6 +196,16 @@ main()
 							DrawPoint(i,31);
 			    		    for(i=0;i<64;i++)						
 							DrawPoint(63,i);						
+							flag=keyScan();
+							if(flag==9)
+							break;
+						}
+						Clear();
+						break;
+				case 6:	Clear();flag=0;
+			   			while(1){
+							DrawhanziS("0123456",1,0);
+							DrawhanziS("0123456",2,0);
 							flag=keyScan();
 							if(flag==9)
 							break;

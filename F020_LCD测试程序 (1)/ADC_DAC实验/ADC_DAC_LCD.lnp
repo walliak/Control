@@ -1,6 +1,0 @@
-"key.obj",
-"lcd.obj",
-"main.obj",
-"adc.obj" 
-TO "ADC_DAC_LCD" 
-RAMSIZE(256) 
