@@ -294,7 +294,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\ADC_DAC实验</IncludePath>
+              <IncludePath>..\Project_1</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>

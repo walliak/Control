@@ -1,0 +1,97 @@
+BL51 BANKED LINKER/LOCATER V6.00                                                        05/22/2013  22:48:34  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.00, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE bjdj.obj TO bjdj RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  bjdj.obj (BJDJ)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  bjdj (BJDJ)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0018H     INBLOCK      ?PR?MAIN?BJDJ
+            CODE    001BH     000CH     UNIT         ?C_C51STARTUP
+            CODE    0027H     000AH     INBLOCK      ?PR?_DELAY?BJDJ
+            CODE    0031H     0008H     UNIT         ?CO?BJDJ
+
+
+
+OVERLAY MAP OF MODULE:   bjdj (BJDJ)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?BJDJ
+
+?PR?MAIN?BJDJ
+  +--> ?CO?BJDJ
+  +--> ?PR?_DELAY?BJDJ
+
+
+
+SYMBOL TABLE OF MODULE:  bjdj (BJDJ)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        BJDJ
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:0003H         PUBLIC        main
+BL51 BANKED LINKER/LOCATER V6.00                                                      05/22/2013  22:48:34  PAGE 2
+
+
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  C:0027H         PUBLIC        _Delay
+  C:0035H         PUBLIC        B_Rotation
+  D:00D0H         PUBLIC        PSW
+  C:0031H         PUBLIC        F_Rotation
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        i
+  C:0027H         LINE#         16
+  C:0027H         LINE#         17
+  C:0027H         LINE#         18
+  C:0030H         LINE#         19
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:0005H         SYMBOL        i
+  -------         ENDDO         
+  C:0003H         LINE#         21
+  C:0003H         LINE#         22
+  C:0003H         LINE#         25
+  C:0006H         LINE#         27
+  C:0006H         LINE#         28
+  C:0006H         LINE#         29
+  C:0008H         LINE#         30
+  C:0008H         LINE#         31
+  C:000FH         LINE#         32
+  C:0015H         LINE#         33
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        BJDJ
+
+Program Size: data=9.0 xdata=0 code=57
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

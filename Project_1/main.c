@@ -117,7 +117,7 @@ main()
 {
 
  	 unsigned char key=0,flag=0;
-	 unsigned int i=0;
+	 unsigned int i,y;
 	 Init_Device();
      for(i=0;i<1000;i++)
 	 adcmem[i]=0;
@@ -206,6 +206,28 @@ main()
 			   			while(1){
 							DrawhanziS("0123456",1,0);
 							DrawhanziS("0123456",2,0);
+							flag=keyScan();
+							if(flag==9)
+							break;
+						}
+						Clear();
+						break;
+				case 7: Clear();flag=0;
+						while(1)
+						{
+							for(i=0;i<120;i++)
+							DrawPoint(i,15);
+							for(i=0;i<56;i++)
+							DrawPoint(15,i);
+							for(i=32;i<120;i++)
+							{
+								y=(i-32)/2+16;
+								DrawPoint(i,y);
+							}
+							DrawcharS("y",0,2);
+							DrawcharS("x",2,15);
+							DrawcharS("o",2,2);
+
 							flag=keyScan();
 							if(flag==9)
 							break;

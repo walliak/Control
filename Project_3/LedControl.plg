@@ -1,0 +1,16 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+E:\WindowsDesktop\Control\Project_3\LedControl.uvproj
+Project File Date:  03/18/2019
+
+<h2>Output:</h2>
+Load "E:\\WindowsDesktop\\Control\\Project_3\\LedControl" 
+Flash Erase Done.
+Flash Image Update Complete. 
+Beginning programming...
+Flash Program Done: 8481 bytes programmed.
+Checksum:0xb686
+Flash Verify Done: 8481 bytes verified.
