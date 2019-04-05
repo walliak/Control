@@ -376,11 +376,6 @@
               <FileType>1</FileType>
               <FilePath>..\Common\CompositeChars.c</FilePath>
             </File>
-            <File>
-              <FileName>CompositeChars.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Common\CompositeChars.h</FilePath>
-            </File>
           </Files>
         </Group>
       </Groups>

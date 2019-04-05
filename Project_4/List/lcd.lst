@@ -1,0 +1,555 @@
+C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE LCD
+OBJECT MODULE PLACED IN .\Object\lcd.obj
+COMPILER INVOKED BY: D:\KeilC51\C51\BIN\C51.EXE Peripheral_C\lcd.c BROWSE INCDIR(.\Peripheral_H;.\Common) DEBUG OBJECTEX
+                    -TEND PRINT(.\List\lcd.lst) OBJECT(.\Object\lcd.obj)
+
+line level    source
+
+   1          #include <c8051f020.h>
+   2          #include <math.h>
+   3          #include "lcd.h"
+   4          #include "character.h"
+   5          /******************************
+   6          12864LCDÆÁ
+   7          ¿í*¸ß=64*128¸öÏñËØµã
+   8          
+   9          ********************************/
+  10          sbit  SCK=  P3^4;
+  11          sbit  SDA=  P3^5;
+  12           
+  13          void Delayms(unsigned int time)
+  14          {
+  15   1              int i;
+  16   1              while(time--)
+  17   1              for(i=0;i<=20;i++);
+  18   1      }
+  19          
+  20          void WrateC(unsigned char com)                          //·¢ËÍÃüÁî      ÓÉLCDWriteµÈº¯Êýµ÷ÓÃ
+  21          
+  22          {
+  23   1          unsigned char data i,j,k;
+  24   1                  ClrLCDRS;  
+  25   1                      for(i=0;i<8;i++)
+  26   1                  { 
+  27   2                               j=com;                          
+  28   2                               SDA=com&0x80; 
+  29   2                               SCK=0;
+  30   2                               for(k = 0;k < 3;k ++);//ÑÓÊ±
+  31   2                       SCK=1; 
+  32   2                               for(k = 0;k < 3;k ++);//ÑÓÊ±     
+  33   2                               com=j<<1;
+  34   2                      }
+  35   1                      SetLCDRS;
+  36   1      }
+  37          
+  38          void WrateD(unsigned char dat)                    //·¢ËÍÊý¾Ý     ÓÉLCDWriteµÈº¯Êýµ÷ÓÃ
+  39          
+  40          {
+  41   1          unsigned char data i,j,k;
+  42   1                  SetLCDRS;  
+  43   1                      for(i=0;i<8;i++)
+  44   1                  { 
+  45   2                               j=dat;
+  46   2                               
+  47   2                               SDA=dat&0x80;
+  48   2                               SCK=0;
+  49   2                               for(k = 0;k < 3;k ++);//ÑÓÊ±
+  50   2                       SCK=1;   
+  51   2                               for(k = 0;k < 3;k ++);//ÑÓÊ±   
+  52   2                               dat=j<<1;
+  53   2                      }
+  54   1                      ClrLCDRS;
+C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 2   
+
+  55   1      }
+  56          
+  57          void LCDWrite(unsigned char type,unsigned char dat)             //      #define         W_CMD           1               #define         W_DAT           0               ÏòLCD´«ËÍÐÅÏ
+             -¢ ÃüÁî/Êý¾Ý        
+  58          
+  59          { 
+  60   1      
+  61   1              if(type)
+  62   1              {
+  63   2                      WrateC(dat);
+  64   2              }
+  65   1              else
+  66   1              {
+  67   2                      WrateD(dat);
+  68   2              }
+  69   1      }
+  70          
+  71          void newLCDInit()                                                 //LCD³õÊ¼»¯º¯Êý,Òý½Å²¿·ÝÖÃÓÚÏµÍ³³õÊ¼»¯²¿·ÝÁË£¬×¢Òâ´®ÐÐÄ£Ê½ÏÂLCDµÄÊ±ÖÓÊýºÍÊý¾ÝÏß¶¼
+             -ÒªÉèÖÃÎªPÄ£Ê½£¨£¿£©
+  72          {
+  73   1      //      P3MDOUT |= BIT(4) + BIT(5); //P3.4 P3.5 LCD IO ¿ÚÉèÖÃ
+  74   1       //   P74OUT |= BIT0;             //P4.0-P4.4ÉèÖÃÎªÍÆÍìÊä³ö
+  75   1              SetLCDRST;
+  76   1              Delayms(10);
+  77   1              ClrLCDRST;
+  78   1              Delayms(10);
+  79   1              SetLCDRST;
+  80   1              Delayms(10);
+  81   1              LCDWrite(W_CMD,0xE2);   //Èí¼þ¸´Î»
+  82   1              LCDWrite(W_CMD,0xA3);//Bais set         ÏÔÊ¾Æ«Ñ¹
+  83   1              LCDWrite(W_CMD,0xA0);//ADC seg¾µÏñÑ¡Ôñ 0xa0Õý³££¬0xA1×óÓÒ¾µÏñ
+  84   1              LCDWrite(W_CMD,0xC0);//com output scan direction£¬com¾µÏñÑ¡Ôñ 0xc0Õý³££¬0xC8ÉÏÏÂ¾µÏñ
+  85   1              LCDWrite(W_CMD,0x26);
+  86   1              Delayms(5);
+  87   1      
+  88   1              
+  89   1      
+  90   1              LCDWrite(W_CMD,0x2C);//ÄÚ²¿µçÔ´¹ÜÀí£¬
+  91   1              Delayms(10);
+  92   1              LCDWrite(W_CMD,0x2E);//ÈýÌõÖ¸Áî¼ä¸ôÊ±¼ä2ms
+  93   1              Delayms(10);
+  94   1              LCDWrite(W_CMD,0x2F);
+  95   1              Delayms(10);
+  96   1      
+  97   1      //      LCDWrite(W_CMD,0x24);//µçÑ¹µ÷Õû¼Ä´æÆ÷¸ßÎ» ·¶Î§£º0x21-0x27 
+  98   1              LCDWrite(W_CMD,0x81);//µçÑ¹Ä£Ê½Ñ¡Ôñ
+  99   1              LCDWrite(W_CMD,0x20);//µçÑ¹µ÷Õû¼Ä´æÆ÷µÍÎ» ·¶Î§£º0x00-0x3f
+ 100   1              Delayms(10);
+ 101   1              LCDWrite(W_CMD,0xF8);
+ 102   1              LCDWrite(W_CMD,0x01);
+ 103   1          Delayms(5);
+ 104   1              LCDWrite(W_CMD,0xAF);//ÏÔÊ¾¿ª         
+ 105   1      //      LCDWrite(W_CMD,0x40);//´ÓÊ×ÐÐ¿ªÊ¼ÏÔÊ¾
+ 106   1      }
+ 107          //
+ 108          //---------------------------------------------
+ 109          //LCD_set_XY: ÉèÖÃLCD×ø±êº¯Êý
+ 110          //ÊäÈë²ÎÊý£ºX£º0£­127  Y£º0£­7
+ 111          //±àÐ´ÈÕÆÚ£º
+ 112          //---------------------------------------------
+ 113          void LCD_setXY(unsigned char X, unsigned char Y)           //ÉèÖÃLCD×ø±êº¯ÊýX£º0£­127  Y£º0£­7 ,µ÷ÓÃ·½Ê½£ºLCD_set
+             -XY(0,0)   ×óÉÏ½ÇÎªÔ­µãÓ´£¡
+C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 3   
+
+ 114          {
+ 115   1              unsigned char gao,di;
+ 116   1              WrateC(0xB0 | Y); //Ò³
+ 117   1              gao = X & 0xf0;
+ 118   1              gao = gao >> 4;
+ 119   1              di = X & 0x0f;
+ 120   1              WrateC(0x10 | gao);  //set Column address MSB
+ 121   1          WrateC(0x00 | di);  //set column address LSB
+ 122   1      
+ 123   1      }
+ 124          
+ 125          
+ 126          void LCD_draw_point(unsigned char x,unsigned char y)    // ×óÏÂÎªÔ­µã£¡ X£º0£­127  Y£º0£­7 Î»ÖÃ»­µã  Ò»´ÎÒ
+             -»ÁÐ°Ë¸öµãÓ´£¡ 
+ 127          {
+ 128   1              LCD_setXY(x,y);
+ 129   1              LCDWrite(W_DAT,0xff) ;
+ 130   1      }
+ 131          
+ 132          void Clear()                                                              //ÇåÆÁ
+ 133          {
+ 134   1         unsigned char page,j;
+ 135   1               for(page=0xB7;page>=0xB0;page--)  
+ 136   1          {  
+ 137   2              LCDWrite(W_CMD,page);
+ 138   2              LCDWrite(W_CMD,0x10);
+ 139   2              LCDWrite(W_CMD,0x00);  
+ 140   2           for(j=0;j<128;j++)  
+ 141   2              {  
+ 142   3               WrateD(0x00);  
+ 143   3              }  
+ 144   2          } 
+ 145   1      }
+ 146          
+ 147          /*
+ 148          void set_page_add(unsigned char page)             //»»Ò³
+ 149          {  
+ 150                  LCDWrite(W_CMD,0xB7-page);
+ 151          }
+ 152          
+ 153          void set_column_add(unsigned char column)
+ 154          {
+ 155                  unsigned char column_H,column_L;
+ 156                    column_H=(column>>4)|0x10;      //µ÷ÕûÊý¾Ý¸ñÊ½
+ 157                    column_L=column&0x0f;           //µ÷ÕûÊý¾Ý¸ñÊ½
+ 158                            LCDWrite(W_CMD,column_H);
+ 159                            LCDWrite(W_CMD,column_L);
+ 160          }
+ 161          
+ 162          void s_out_W(unsigned char j)
+ 163          {  
+ 164            unsigned char u,k;  
+ 165            for(u=0;u<8;u++)
+ 166                 { 
+ 167                  SDA=j&0x01;
+ 168                          SCK=0;
+ 169                          for(k = 0;k < 5;k ++);//ÑÓÊ±
+ 170                      SCK=1;        
+ 171                          for(k = 0;k < 5;k ++);//ÑÓÊ±
+ 172                  j>>=1;
+ 173                 }   
+ 174          }
+C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 4   
+
+ 175          
+ 176          void w_dat_W(unsigned char dat)  
+ 177          {    
+ 178                  SetLCDRS;    
+ 179                  s_out_W(dat); 
+ 180          } 
+ 181          */
+ 182          
+ 183          void DrawPoint(unsigned char x,unsigned char y)         //Á¬Ðø²Ù×÷Í¬Ò»ÏÔÊ¾×Ö½ÚÊ±,±£ÁôÔ­Ê¼Êý¾Ý£¬»­µã£¡      LCD×óÏÂ½
+             -ÇÎª×ø±êÔ­µã x:0~127 y :0~63
+ 184          {
+ 185   1          unsigned char senddat,yy;
+ 186   1              static unsigned char DataOld=0,yOld=0,xOld=0;
+ 187   1              yy=(int)(y/8);
+ 188   1              if((yy==yOld)&&(x==xOld))
+ 189   1                 senddat = DataOld | (0x80>>(y%8));
+ 190   1              else
+ 191   1                 senddat = 0x80>>(y%8);
+ 192   1              LCD_setXY(x,abs(yy-7));
+ 193   1              LCDWrite(W_DAT,senddat);
+ 194   1              DataOld = senddat;
+ 195   1              yOld=yy;
+ 196   1              xOld=x;
+ 197   1      }
+ 198          
+ 199          
+ 200          /*********************************************************************
+ 201          *ÔÚÆÁÄ»ÉÏÏÔÊ¾Ò»¸ö×Ö·û£¨16*8¸öµã£¬¹²16×Ö½Ú£©
+ 202          *²ÎÊý£ºC×Ö·û    row ÐÐ:0~3  col ÁÐ:0~15
+ 203          *********************************************************************/
+ 204          void Drawchar(unsigned char C,unsigned char row,unsigned char col)                       
+ 205          {       
+ 206   1          unsigned char b,Row,Col;
+ 207   1          unsigned char k;
+ 208   1              k=C-0x20;
+ 209   1              Row=(63-(16*row));
+ 210   1              Col=8*col;
+ 211   1      
+ 212   1              for(b = 0;b<16;b++)
+ 213   1              {
+ 214   2                unsigned char F;
+ 215   2                F=2*b;
+ 216   2               if(b<8)
+ 217   2               {
+ 218   3                if((AsciiFontData[k][b]&0x80)!=0)
+ 219   3                DrawPoint(Col+b,Row);
+ 220   3                      
+ 221   3                
+ 222   3                if((AsciiFontData[k][b]&0x40)!=0)
+ 223   3                DrawPoint(Col+b,Row-1);
+ 224   3                      
+ 225   3                if((AsciiFontData[k][b]&0x20)!=0)
+ 226   3                DrawPoint(Col+b,Row-2);
+ 227   3                      
+ 228   3                if((AsciiFontData[k][b]&0x10)!=0)
+ 229   3                DrawPoint(Col+b,Row-3);
+ 230   3      
+ 231   3                if((AsciiFontData[k][b]&0x08)!=0)
+ 232   3                DrawPoint(Col+b,Row-4);
+ 233   3                      
+ 234   3                if((AsciiFontData[k][b]&0x04)!=0)
+ 235   3                DrawPoint(Col+b,Row-5);
+C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 5   
+
+ 236   3                 
+ 237   3                if((AsciiFontData[k][b]&0x02)!=0)
+ 238   3            DrawPoint(Col+b,Row-6);
+ 239   3                      
+ 240   3                if((AsciiFontData[k][b]&0x01)!=0)
+ 241   3                DrawPoint(Col+b,Row-7);
+ 242   3                }
+ 243   2                else
+ 244   2                {
+ 245   3                 if((AsciiFontData[k][b]&0x80)!=0)
+ 246   3                DrawPoint(Col+b-8,Row-8);
+ 247   3                      
+ 248   3                
+ 249   3                if((AsciiFontData[k][b]&0x40)!=0)
+ 250   3                DrawPoint(Col+b-8,Row-9);
+ 251   3                      
+ 252   3                if((AsciiFontData[k][b]&0x20)!=0)
+ 253   3                DrawPoint(Col+b-8,Row-10);
+ 254   3                      
+ 255   3                if((AsciiFontData[k][b]&0x10)!=0)
+ 256   3                DrawPoint(Col+b-8,Row-11);
+ 257   3      
+ 258   3                if((AsciiFontData[k][b]&0x08)!=0)
+ 259   3                DrawPoint(Col+b-8,Row-12);
+ 260   3                      
+ 261   3                if((AsciiFontData[k][b]&0x04)!=0)
+ 262   3                DrawPoint(Col+b-8,Row-13);
+ 263   3                 
+ 264   3                if((AsciiFontData[k][b]&0x02)!=0)
+ 265   3            DrawPoint(Col+b-8,Row-14);
+ 266   3                      
+ 267   3                if((AsciiFontData[k][b]&0x01)!=0)
+ 268   3                DrawPoint(Col+b-8,Row-15);
+ 269   3                }       
+ 270   2              
+ 271   2              }
+ 272   1      
+ 273   1      }
+ 274          
+ 275          /*********************************************************************
+ 276          *ÔÚÆÁÄ»ÉÏÏÔÊ¾Ò»´®×Ö·û
+ 277          *²ÎÊý£ºC¡¾¡¿×Ö·û´®      row ÆðÊ¼ÐÐ:0~3  low ÆðÊ¼ÁÐ:0~15
+ 278          *********************************************************************/
+ 279          void DrawcharS(unsigned char *C,unsigned char row,unsigned char col)            //Ã¿ÐÐ×î¶à16¸ö×Ö·û£¬¶àÓÚ16¸ö»»ÐÐ£¡¹²
+             -4ÐÐ                ×óÉÏ½ÇÔ­µã
+ 280          {
+ 281   1        int flag=0,i=0;
+ 282   1        unsigned char R,L,TOTAL;
+ 283   1        TOTAL=(row*16)+col;
+ 284   1        if(TOTAL>63||row>3||col>15)
+ 285   1         {flag=1;}
+ 286   1      
+ 287   1        while(flag==0)
+ 288   1        {
+ 289   2         if(*C!='\0')
+ 290   2         {
+ 291   3           R= (TOTAL+i)/16 ;
+ 292   3               L=     (TOTAL+i)%16;
+ 293   3               Drawchar(*C,R,L);
+ 294   3               C++;
+ 295   3               i++;
+ 296   3               if((TOTAL+i)>63)
+C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 6   
+
+ 297   3                {
+ 298   4                       flag=1;
+ 299   4                }
+ 300   3         }
+ 301   2         else
+ 302   2         {
+ 303   3           flag=1;
+ 304   3         }
+ 305   2       }
+ 306   1      
+ 307   1      }
+ 308          
+ 309          /***********************************************
+ 310          *ºº×Ö´øÐ±Ïß
+ 311          
+ 312          *ÔÚÆÁÄ»ÉÏÏÔÊ¾Ò»¸öºº×Ö£¨16*16¸öµã£¬¹²32¸ö×Ö½Ú£©
+ 313          *²ÎÊý£º CÎªºº×ÖÔÚDzkCodeÖÐµÄÏÂ±êÎ»ÖÃ£¬
+ 314                          row ÔÚLCDÆÁÉÏÏÔÊ¾µÄÐÐ 0-3£»
+ 315                          col ÔÚLCDÆÁÉÏÏÔÊ¾µÄÁÐ 0-7£»
+ 316          *É¨Ãè·½Ê½£º×ÝÏò--ÏÈ×óÓÒºóÉÏÏÂ
+ 317                             ¸ßÎ»ÔÚÇ°
+ 318          
+ 319          **********************************************/
+ 320          void Drawhanzi(unsigned char C,unsigned char row,unsigned char col)               //row ÐÐ:0~3  col ÁÐ:0~7   Ã¿¸öºº×Ö
+             -Õ¼16*16¸öµã         ×óÉÏ½ÇÔ­µã
+ 321          {       
+ 322   1          unsigned char b,Row,Col;
+ 323   1          unsigned char k;
+ 324   1              k=C;
+ 325   1              Row=(63-(16*row));
+ 326   1              Col=16*col;
+ 327   1      
+ 328   1                      for(b = 0;b<32;b++)
+ 329   1              {
+ 330   2               if(b<16)
+ 331   2               {
+ 332   3                if((DzkCode[k][b]&0x80)!=0)
+ 333   3                DrawPoint(Col+b,Row);
+ 334   3                      
+ 335   3                
+ 336   3                if((DzkCode[k][b]&0x40)!=0)
+ 337   3                DrawPoint(Col+b,Row-1);
+ 338   3                      
+ 339   3                if((DzkCode[k][b]&0x20)!=0)
+ 340   3                DrawPoint(Col+b,Row-2);
+ 341   3                      
+ 342   3                if((DzkCode[k][b]&0x10)!=0)
+ 343   3                DrawPoint(Col+b,Row-3);
+ 344   3      
+ 345   3                if((DzkCode[k][b]&0x08)!=0)
+ 346   3                DrawPoint(Col+b,Row-4);
+ 347   3                      
+ 348   3                if((DzkCode[k][b]&0x04)!=0)
+ 349   3                DrawPoint(Col+b,Row-5);
+ 350   3                 
+ 351   3                if((DzkCode[k][b]&0x02)!=0)
+ 352   3            DrawPoint(Col+b,Row-6);
+ 353   3                      
+ 354   3                if((DzkCode[k][b]&0x01)!=0)
+ 355   3                DrawPoint(Col+b,Row-7);
+ 356   3                }
+ 357   2                else
+C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 7   
+
+ 358   2                {
+ 359   3                 if((DzkCode[k][b]&0x80)!=0)
+ 360   3                DrawPoint(Col+b-16,Row-8);
+ 361   3                      
+ 362   3                
+ 363   3                if((DzkCode[k][b]&0x40)!=0)
+ 364   3                DrawPoint(Col+b-16,Row-9);
+ 365   3                      
+ 366   3                if((DzkCode[k][b]&0x20)!=0)
+ 367   3                DrawPoint(Col+b-16,Row-10);
+ 368   3                      
+ 369   3                if((DzkCode[k][b]&0x10)!=0)
+ 370   3                DrawPoint(Col+b-16,Row-11);
+ 371   3      
+ 372   3                if((DzkCode[k][b]&0x08)!=0)
+ 373   3                DrawPoint(Col+b-16,Row-12);
+ 374   3                      
+ 375   3                if((DzkCode[k][b]&0x04)!=0)
+ 376   3                DrawPoint(Col+b-16,Row-13);
+ 377   3                 
+ 378   3                if((DzkCode[k][b]&0x02)!=0)
+ 379   3            DrawPoint(Col+b-16,Row-14);
+ 380   3                      
+ 381   3                if((DzkCode[k][b]&0x01)!=0)
+ 382   3                DrawPoint(Col+b-16,Row-15);
+ 383   3                }       
+ 384   2              
+ 385   2              }
+ 386   1      }
+ 387          
+ 388          /***********************************************
+ 389          *ºº×ÖÎÞÐ±Ïß
+ 390          
+ 391          *ÔÚÆÁÄ»ÉÏÏÔÊ¾Ò»¸öºº×Ö£¨16*16¸öµã£¬¹²32¸ö×Ö½Ú£©
+ 392          *²ÎÊý£º CÎªºº×ÖÔÚDzkCodeÖÐµÄÏÂ±êÎ»ÖÃ£¬
+ 393                          row ÔÚLCDÆÁÉÏÏÔÊ¾µÄÐÐ 0-3£»
+ 394                          col ÔÚLCDÆÁÉÏÏÔÊ¾µÄÁÐ 0-7£»
+ 395          *É¨Ãè·½Ê½£º×ÝÏò--ÏÈ×óÓÒºóÉÏÏÂ
+ 396                             ¸ßÎ»ÔÚÇ°
+ 397          
+ 398          **********************************************/
+ 399          void Drawhanzifix(unsigned char C,unsigned char row,unsigned char col)            //row ÐÐ:0~3  col ÁÐ:0~7   Ã¿¸öº
+             -º×ÖÕ¼16*16¸öµã         ×óÉÏ½ÇÔ­µã
+ 400          {       
+ 401   1          unsigned char b,Row,Col;
+ 402   1          unsigned char k;
+ 403   1              k=C;
+ 404   1              Row=(63-(16*row));
+ 405   1              Col=16*col;
+ 406   1      
+ 407   1                      for(b = 0;b<32;b++)
+ 408   1              {
+ 409   2               if(b<16)
+ 410   2               {
+ 411   3                if(((DzkCode[k][b]-Fix[b])&0x80)!=0)
+ 412   3                DrawPoint(Col+b,Row);
+ 413   3                      
+ 414   3                
+ 415   3                if(((DzkCode[k][b]-Fix[b])&0x40)!=0)
+ 416   3                DrawPoint(Col+b,Row-1);
+ 417   3                      
+ 418   3                if(((DzkCode[k][b]-Fix[b])&0x20)!=0)
+C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 8   
+
+ 419   3                DrawPoint(Col+b,Row-2);
+ 420   3                      
+ 421   3                if(((DzkCode[k][b]-Fix[b])&0x10)!=0)
+ 422   3                DrawPoint(Col+b,Row-3);
+ 423   3      
+ 424   3                if(((DzkCode[k][b]-Fix[b])&0x08)!=0)
+ 425   3                DrawPoint(Col+b,Row-4);
+ 426   3                      
+ 427   3                if(((DzkCode[k][b]-Fix[b])&0x04)!=0)
+ 428   3                DrawPoint(Col+b,Row-5);
+ 429   3                 
+ 430   3                if(((DzkCode[k][b]-Fix[b])&0x02)!=0)
+ 431   3            DrawPoint(Col+b,Row-6);
+ 432   3                      
+ 433   3                if(((DzkCode[k][b]-Fix[b])&0x01)!=0)
+ 434   3                DrawPoint(Col+b,Row-7);
+ 435   3                }
+ 436   2                else
+ 437   2                {
+ 438   3                 if(((DzkCode[k][b]-Fix[b])&0x80)!=0)
+ 439   3                DrawPoint(Col+b-16,Row-8);
+ 440   3                      
+ 441   3                
+ 442   3                if(((DzkCode[k][b]-Fix[b])&0x40)!=0)
+ 443   3                DrawPoint(Col+b-16,Row-9);
+ 444   3                      
+ 445   3                if(((DzkCode[k][b]-Fix[b])&0x20)!=0)
+ 446   3                DrawPoint(Col+b-16,Row-10);
+ 447   3                      
+ 448   3                if(((DzkCode[k][b]-Fix[b])&0x10)!=0)
+ 449   3                DrawPoint(Col+b-16,Row-11);
+ 450   3      
+ 451   3                if(((DzkCode[k][b]-Fix[b])&0x08)!=0)
+ 452   3                DrawPoint(Col+b-16,Row-12);
+ 453   3                      
+ 454   3                if(((DzkCode[k][b]-Fix[b])&0x04)!=0)
+ 455   3                DrawPoint(Col+b-16,Row-13);
+ 456   3                 
+ 457   3                if(((DzkCode[k][b]-Fix[b])&0x02)!=0)
+ 458   3            DrawPoint(Col+b-16,Row-14);
+ 459   3                      
+ 460   3                if(((DzkCode[k][b]-Fix[b])&0x01)!=0)
+ 461   3                DrawPoint(Col+b-16,Row-15);
+ 462   3                }       
+ 463   2              
+ 464   2              }
+ 465   1      }
+ 466          
+ 467          /***********************************************
+ 468          *ÏÔÊ¾Ò»ÐÐºº×Ö
+ 469          
+ 470          *²ÎÊý£º CÎªÒ»´®ÏÂ±êÎ»ÖÃ£¬
+ 471                          row ÔÚLCDÆÁÉÏÏÔÊ¾µÄÐÐ 0-3£»
+ 472                          col ÔÚLCDÆÁÉÏÏÔÊ¾µÄÁÐ 0-7£»
+ 473          
+ 474          *Ã¿ÐÐ×î¶àÏÔÊ¾8¸öºº×Ö£¬×Ô¶¯»»ÐÐ
+ 475          
+ 476          **********************************************/
+ 477          void DrawhanziS(unsigned char *C,unsigned char row,unsigned char col)   
+ 478          {
+ 479   1        int flag=0,i=0;
+ 480   1        unsigned char R,L,TOTAL;
+C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 9   
+
+ 481   1        TOTAL=(row*8)+col;
+ 482   1        if(TOTAL>63||row>3||col>15)
+ 483   1         {flag=1;}
+ 484   1      
+ 485   1        while(flag==0)
+ 486   1        {
+ 487   2         if(*C!='\0')
+ 488   2         {
+ 489   3           R= (TOTAL+i)/8 ;
+ 490   3               L=     (TOTAL+i)%8;
+ 491   3               Drawhanzifix(*C,R,L);
+ 492   3               C++;
+ 493   3               i++;
+ 494   3               if((TOTAL+i)>63)
+ 495   3                {
+ 496   4                       flag=1;
+ 497   4                }
+ 498   3         }
+ 499   2         else
+ 500   2         {
+ 501   3           flag=1;
+ 502   3         }
+ 503   2       }
+ 504   1      
+ 505   1      }
+ 506          
+ 507          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   3228    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3      40
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

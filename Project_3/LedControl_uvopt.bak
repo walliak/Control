@@ -195,8 +195,8 @@
       <Focus>0</Focus>
       <ColumnNumber>22</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>19</TopLine>
-      <CurrentLine>32</CurrentLine>
+      <TopLine>55</TopLine>
+      <CurrentLine>55</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\key.c</PathWithFileName>
       <FilenameWithoutPath>key.c</FilenameWithoutPath>
@@ -209,8 +209,8 @@
       <Focus>0</Focus>
       <ColumnNumber>20</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>258</TopLine>
-      <CurrentLine>276</CurrentLine>
+      <TopLine>145</TopLine>
+      <CurrentLine>145</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -1626,19 +1626,19 @@
     <ActiveMDIGroup>0</ActiveMDIGroup>
     <MDIGroup>
       <Size>100</Size>
-      <ActiveTab>4</ActiveTab>
+      <ActiveTab>0</ActiveTab>
       <Documents>
         <Doc>
           <Name>.\main.c</Name>
           <ColumnNumber>20</ColumnNumber>
-          <TopLine>258</TopLine>
-          <CurrentLine>276</CurrentLine>
+          <TopLine>145</TopLine>
+          <CurrentLine>145</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\key.c</Name>
           <ColumnNumber>22</ColumnNumber>
-          <TopLine>19</TopLine>
-          <CurrentLine>32</CurrentLine>
+          <TopLine>55</TopLine>
+          <CurrentLine>55</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Timer3.c</Name>

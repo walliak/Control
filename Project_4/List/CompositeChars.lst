@@ -1,0 +1,112 @@
+C51 COMPILER V9.00   COMPOSITECHARS                                                        04/05/2019 21:48:52 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE COMPOSITECHARS
+OBJECT MODULE PLACED IN .\Object\CompositeChars.obj
+COMPILER INVOKED BY: D:\KeilC51\C51\BIN\C51.EXE Common\CompositeChars.c BROWSE INCDIR(.\Peripheral_H;.\Common) DEBUG OBJ
+                    -ECTEXTEND PRINT(.\List\CompositeChars.lst) OBJECT(.\Object\CompositeChars.obj)
+
+line level    source
+
+   1          #include <string.h>
+   2          #include "lcd.h"
+   3          #include "CompositeChars.h"
+   4          
+   5           void reverse(char *s)
+   6          {
+   7   1        int c;
+   8   1        char *t; 
+   9   1        for (t = s + (strlen(s) - 1); s < t; s++, t-- )
+  10   1        {
+  11   2          c = *s;
+  12   2          *s = *t;
+  13   2          *t = c;
+  14   2        }
+  15   1      }
+  16          
+  17           void itoa(int n, char *s)
+  18          {
+  19   1        int sign;
+  20   1        char *t = s;  
+  21   1        if ((sign = n) < 0)
+  22   1          n = -n; 
+  23   1        do
+  24   1        {
+  25   2          *s++ = n % 10 + '0';
+  26   2        } 
+  27   1        while ((n /= 10) >0); 
+  28   1        if (sign < 0)
+  29   1          *s++ = '-'; 
+  30   1        *s = '\0';  
+  31   1        reverse(t);
+  32   1      }
+  33          
+  34          void CompositeChars(char hour,char minute,char second,char*setTime,char*str)
+  35          {               
+  36   1              unsigned char S_hour[4],S_minute[4],S_second[4],temp[4];
+  37   1              unsigned char i;
+  38   1              if(hour>9)      
+  39   1                      itoa(hour,S_hour);      
+  40   1              else
+  41   1              {       
+  42   2                      itoa(hour,S_hour);      
+  43   2                      strcpy(temp,S_hour);
+  44   2                      strcpy(S_hour,"0");
+  45   2                      strcat(S_hour,temp);
+  46   2                      
+  47   2              }
+  48   1      
+  49   1              if(minute>9)    
+  50   1                      itoa(minute,S_minute);  
+  51   1              else
+  52   1              {       
+  53   2                      itoa(minute,S_minute);  
+  54   2                      strcpy(temp,S_minute);
+C51 COMPILER V9.00   COMPOSITECHARS                                                        04/05/2019 21:48:52 PAGE 2   
+
+  55   2                      strcpy(S_minute,"0");
+  56   2                      strcat(S_minute,temp);
+  57   2                      
+  58   2              }
+  59   1              if(second>9)    
+  60   1                      itoa(second,S_second);  
+  61   1              else
+  62   1              {       
+  63   2                      itoa(second,S_second);  
+  64   2                      strcpy(temp,S_second);
+  65   2                      strcpy(S_second,"0");
+  66   2                      strcat(S_second,temp);          
+  67   2              }
+  68   1      
+  69   1              strcpy(str,setTime);
+  70   1              strcat(str,S_hour);
+  71   1              strcat(str,":");
+  72   1              strcat(str,S_minute);
+  73   1              strcat(str,":");
+  74   1              strcat(str,S_second);
+  75   1      
+  76   1              for(i=0;str[i]!='\0';i++)
+  77   1              {
+  78   2                      if(str[i]=='s')
+  79   2                      {
+  80   3                              i++;
+  81   3                              str[i]='\0';
+  82   3                              break;
+  83   3                      }
+  84   2              }
+  85   1              
+  86   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    665    ----
+   CONSTANT SIZE    =      4    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      41
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
