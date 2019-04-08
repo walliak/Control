@@ -1,4 +1,4 @@
-C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 1   
+C51 COMPILER V9.00   LCD                                                                   04/08/2019 16:26:27 PAGE 1   
 
 
 C51 COMPILER V9.00, COMPILATION OF MODULE LCD
@@ -62,7 +62,7 @@ line level    source
   52   2                               dat=j<<1;
   53   2                      }
   54   1                      ClrLCDRS;
-C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 2   
+C51 COMPILER V9.00   LCD                                                                   04/08/2019 16:26:27 PAGE 2   
 
   55   1      }
   56          
@@ -126,7 +126,7 @@ line level    source
  112          //---------------------------------------------
  113          void LCD_setXY(unsigned char X, unsigned char Y)           //设置LCD坐标函数X：0－127  Y：0－7 ,调用方式：LCD_set
              -XY(0,0)   左上角为原点哟！
-C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 3   
+C51 COMPILER V9.00   LCD                                                                   04/08/2019 16:26:27 PAGE 3   
 
  114          {
  115   1              unsigned char gao,di;
@@ -190,7 +190,7 @@ line level    source
  172                  j>>=1;
  173                 }   
  174          }
-C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 4   
+C51 COMPILER V9.00   LCD                                                                   04/08/2019 16:26:27 PAGE 4   
 
  175          
  176          void w_dat_W(unsigned char dat)  
@@ -254,7 +254,7 @@ line level    source
  233   3                      
  234   3                if((AsciiFontData[k][b]&0x04)!=0)
  235   3                DrawPoint(Col+b,Row-5);
-C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 5   
+C51 COMPILER V9.00   LCD                                                                   04/08/2019 16:26:27 PAGE 5   
 
  236   3                 
  237   3                if((AsciiFontData[k][b]&0x02)!=0)
@@ -318,7 +318,7 @@ line level    source
  294   3               C++;
  295   3               i++;
  296   3               if((TOTAL+i)>63)
-C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 6   
+C51 COMPILER V9.00   LCD                                                                   04/08/2019 16:26:27 PAGE 6   
 
  297   3                {
  298   4                       flag=1;
@@ -382,7 +382,7 @@ line level    source
  355   3                DrawPoint(Col+b,Row-7);
  356   3                }
  357   2                else
-C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 7   
+C51 COMPILER V9.00   LCD                                                                   04/08/2019 16:26:27 PAGE 7   
 
  358   2                {
  359   3                 if((DzkCode[k][b]&0x80)!=0)
@@ -446,7 +446,7 @@ line level    source
  416   3                DrawPoint(Col+b,Row-1);
  417   3                      
  418   3                if(((DzkCode[k][b]-Fix[b])&0x20)!=0)
-C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 8   
+C51 COMPILER V9.00   LCD                                                                   04/08/2019 16:26:27 PAGE 8   
 
  419   3                DrawPoint(Col+b,Row-2);
  420   3                      
@@ -510,7 +510,7 @@ line level    source
  478          {
  479   1        int flag=0,i=0;
  480   1        unsigned char R,L,TOTAL;
-C51 COMPILER V9.00   LCD                                                                   04/05/2019 21:48:53 PAGE 9   
+C51 COMPILER V9.00   LCD                                                                   04/08/2019 16:26:27 PAGE 9   
 
  481   1        TOTAL=(row*8)+col;
  482   1        if(TOTAL>63||row>3||col>15)

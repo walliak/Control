@@ -193,10 +193,10 @@
       <FileType>1</FileType>
       <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>2</ColumnNumber>
+      <ColumnNumber>21</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>137</TopLine>
-      <CurrentLine>159</CurrentLine>
+      <TopLine>70</TopLine>
+      <CurrentLine>70</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
@@ -214,10 +214,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>36</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>37</TopLine>
-      <CurrentLine>37</CurrentLine>
+      <TopLine>13</TopLine>
+      <CurrentLine>26</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Common\Character.c</PathWithFileName>
       <FilenameWithoutPath>Character.c</FilenameWithoutPath>
@@ -226,12 +226,12 @@
       <GroupNumber>2</GroupNumber>
       <FileNumber>4</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>1</ColumnNumber>
+      <ColumnNumber>26</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>17</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Common\CompositeChars.c</PathWithFileName>
       <FilenameWithoutPath>CompositeChars.c</FilenameWithoutPath>
@@ -247,7 +247,7 @@
       <GroupNumber>3</GroupNumber>
       <FileNumber>5</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <Focus>0</Focus>
       <ColumnNumber>14</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
@@ -277,10 +277,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>13</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>301</TopLine>
-      <CurrentLine>317</CurrentLine>
+      <TopLine>268</TopLine>
+      <CurrentLine>268</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Peripheral_C\lcd.c</PathWithFileName>
       <FilenameWithoutPath>lcd.c</FilenameWithoutPath>
@@ -291,10 +291,10 @@
       <FileType>1</FileType>
       <tvExp>1</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>16</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>19</TopLine>
-      <CurrentLine>36</CurrentLine>
+      <TopLine>7</TopLine>
+      <CurrentLine>7</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\Peripheral_C\Timer3.c</PathWithFileName>
       <FilenameWithoutPath>Timer3.c</FilenameWithoutPath>
@@ -304,7 +304,59 @@
   <AlienFiles>
     <PathWithFilename>E:\WindowsDesktop\Control\Project_4\PERIPHERAL_H\TIMER3.H</PathWithFilename>
     <TopLine>1</TopLine>
-    <CurrentLine>4</CurrentLine>
+    <CurrentLine>7</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>E:\WindowsDesktop\Control\Project_4\COMMON\COMPOSITECHARS.H</PathWithFilename>
+    <TopLine>1</TopLine>
+    <CurrentLine>3</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>E:\WindowsDesktop\Control\Project_4\PERIPHERAL_H\INIT.H</PathWithFilename>
+    <TopLine>1</TopLine>
+    <CurrentLine>10</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -1665,52 +1717,70 @@
 
   <MDIGroups>
     <Orientation>3</Orientation>
-    <ActiveMDIGroup>0</ActiveMDIGroup>
+    <ActiveMDIGroup>1</ActiveMDIGroup>
     <MDIGroup>
-      <Size>70</Size>
+      <Size>47</Size>
       <ActiveTab>1</ActiveTab>
       <Documents>
         <Doc>
           <Name>.\PERIPHERAL_H\TIMER3.H</Name>
-          <ColumnNumber>32</ColumnNumber>
+          <ColumnNumber>2</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>4</CurrentLine>
+          <CurrentLine>7</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\main.c</Name>
-          <ColumnNumber>2</ColumnNumber>
-          <TopLine>137</TopLine>
-          <CurrentLine>159</CurrentLine>
+          <ColumnNumber>21</ColumnNumber>
+          <TopLine>70</TopLine>
+          <CurrentLine>70</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\PERIPHERAL_H\INIT.H</Name>
+          <ColumnNumber>28</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>10</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>
     <MDIGroup>
-      <Size>30</Size>
-      <ActiveTab>1</ActiveTab>
+      <Size>53</Size>
+      <ActiveTab>0</ActiveTab>
       <Documents>
         <Doc>
-          <Name>.\Peripheral_C\Timer3.c</Name>
-          <ColumnNumber>16</ColumnNumber>
-          <TopLine>19</TopLine>
-          <CurrentLine>36</CurrentLine>
+          <Name>.\Common\Character.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>13</TopLine>
+          <CurrentLine>26</CurrentLine>
         </Doc>
         <Doc>
-          <Name>.\Common\Character.c</Name>
-          <ColumnNumber>36</ColumnNumber>
-          <TopLine>37</TopLine>
-          <CurrentLine>37</CurrentLine>
+          <Name>.\COMMON\COMPOSITECHARS.H</Name>
+          <ColumnNumber>28</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>3</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\Peripheral_C\lcd.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>268</TopLine>
+          <CurrentLine>268</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\Common\CompositeChars.c</Name>
+          <ColumnNumber>26</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>17</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>.\Peripheral_C\Timer3.c</Name>
+          <ColumnNumber>0</ColumnNumber>
+          <TopLine>7</TopLine>
+          <CurrentLine>7</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Peripheral_C\Init.c</Name>
           <ColumnNumber>14</ColumnNumber>
           <TopLine>47</TopLine>
           <CurrentLine>59</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>.\Peripheral_C\lcd.c</Name>
-          <ColumnNumber>13</ColumnNumber>
-          <TopLine>301</TopLine>
-          <CurrentLine>317</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

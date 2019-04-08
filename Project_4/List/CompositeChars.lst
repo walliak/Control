@@ -1,4 +1,4 @@
-C51 COMPILER V9.00   COMPOSITECHARS                                                        04/05/2019 21:48:52 PAGE 1   
+C51 COMPILER V9.00   COMPOSITECHARS                                                        04/08/2019 18:13:51 PAGE 1   
 
 
 C51 COMPILER V9.00, COMPILATION OF MODULE COMPOSITECHARS
@@ -62,7 +62,7 @@ line level    source
   52   1              {       
   53   2                      itoa(minute,S_minute);  
   54   2                      strcpy(temp,S_minute);
-C51 COMPILER V9.00   COMPOSITECHARS                                                        04/05/2019 21:48:52 PAGE 2   
+C51 COMPILER V9.00   COMPOSITECHARS                                                        04/08/2019 18:13:51 PAGE 2   
 
   55   2                      strcpy(S_minute,"0");
   56   2                      strcat(S_minute,temp);

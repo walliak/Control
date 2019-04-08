@@ -1,9 +1,10 @@
 #include "C8051F020.h"
 #include "timer3.h"
 
-unsigned int timeUnit=0;
-unsigned long timeTotal=0;
+unsigned int timeUnit = 0;
+unsigned long timeTotal = 0;
 unsigned char timeFlag = 0;
+unsigned char timeThreshold = 10;
 
 void Timer_Init()
 {
@@ -33,7 +34,7 @@ void TIMER3_ISR(void)interrupt 14
    									    当定时器3中断被允许时， 该位置‘1’使 CPU 转向定时器 3 的中断服务程序。
 									    该位不能由硬件自动清 0， 必须用软件清 0。*/
 	timeUnit++;
-	if(timeUnit>=10)
+	if(timeUnit>=timeThreshold)
 	{
 		timeUnit=0;
 //		timeTotal++;

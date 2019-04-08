@@ -4,573 +4,241 @@
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
 E:\WindowsDesktop\Control\Project_4\StepMotorControl.uvproj
-Project File Date:  04/02/2019
+Project File Date:  04/05/2019
 
 <h2>Output:</h2>
 compiling main.c...
-MAIN.C(29): warning C206: 'KeyScan': missing function-prototype
-MAIN.C(102): error C267: 'Delay': requires ANSI-style prototype
+main.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling main.c...
+compiling Character.c...
+compiling CompositeChars.c...
+compiling Init.c...
+compiling key.c...
+compiling lcd.c...
+compiling Timer3.c...
+linking...
+Program Size: data=103.0 xdata=0 code=7964
+".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
+Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
+Flash Erase Done.
+Flash Image Update Complete. 
+Beginning programming...
+Flash Program Done: 7964 bytes programmed.
+Checksum:0x13aa
+Flash Verify Done: 7964 bytes verified.
+compiling main.c...
+MAIN.C(24): warning C280: 'speed': unreferenced local variable
+MAIN.C(173): error C202: 'pageFlag': undefined identifier
+MAIN.C(177): error C141: syntax error near '}'
+MAIN.C(180): error C202: 'pageFlag': undefined identifier
+MAIN.C(190): error C202: 'frequency': undefined identifier
+MAIN.C(191): error C202: 'speed': undefined identifier
+main.c - 5 Error(s), 1 Warning(s).
+compiling main.c...
+MAIN.C(24): warning C280: 'speed': unreferenced local variable
+MAIN.C(173): error C202: 'pageFlag': undefined identifier
+MAIN.C(180): error C202: 'pageFlag': undefined identifier
+MAIN.C(190): error C202: 'frequency': undefined identifier
+MAIN.C(191): error C202: 'speed': undefined identifier
+main.c - 4 Error(s), 1 Warning(s).
+compiling main.c...
+MAIN.C(176): error C202: 'pageFlag': undefined identifier
+MAIN.C(183): error C202: 'pageFlag': undefined identifier
+main.c - 2 Error(s), 0 Warning(s).
+compiling main.c...
+main.c - 0 Error(s), 0 Warning(s).
+compiling main.c...
+MAIN.C(201): warning C206: 'itoa': missing function-prototype
+MAIN.C(201): error C267: 'itoa': requires ANSI-style prototype
 main.c - 1 Error(s), 1 Warning(s).
 compiling main.c...
-MAIN.C(29): warning C206: 'KeyScan': missing function-prototype
-main.c - 0 Error(s), 1 Warning(s).
-Build target 'Target 1'
-compiling Init.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_COMPOSITECHARS?COMPOSITECHARS
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?DELAYONESECOND?INIT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_DELAYPART?INIT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_LCD_DRAW_POINT?LCD
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_DRAWHANZI?LCD
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?TIMER_INIT?TIMER3
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?OPENTIMER3?TIMER3
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?CLOSETIMER3?TIMER3
-Program Size: data=102.0 xdata=0 code=7608
-".\Object\StepMotorControl" - 0 Error(s), 8 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7608 bytes programmed.
-Checksum:0xb51e
-Flash Verify Done: 7608 bytes verified.
-compiling main.c...
-MAIN.C(29): warning C206: 'KeyScan': missing function-prototype
-main.c - 0 Error(s), 1 Warning(s).
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-compiling Init.c...
-linking...
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_COMPOSITECHARS?COMPOSITECHARS
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?DELAYONESECOND?INIT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_DELAYPART?INIT
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_LCD_DRAW_POINT?LCD
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?_DRAWHANZI?LCD
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?TIMER_INIT?TIMER3
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?OPENTIMER3?TIMER3
-*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-    SEGMENT: ?PR?CLOSETIMER3?TIMER3
-Program Size: data=102.0 xdata=0 code=7608
-".\Object\StepMotorControl" - 0 Error(s), 8 Warning(s).
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=102.0 xdata=0 code=7608
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7608 bytes programmed.
-Checksum:0xb51e
-Flash Verify Done: 7608 bytes verified.
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7608 bytes programmed.
-Checksum:0xb51e
-Flash Verify Done: 7608 bytes verified.
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7608 bytes programmed.
-Checksum:0xb51e
-Flash Verify Done: 7608 bytes verified.
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=102.0 xdata=0 code=7612
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7612 bytes programmed.
-Checksum:0xb5ed
-Flash Verify Done: 7612 bytes verified.
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=102.0 xdata=0 code=7612
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7612 bytes programmed.
-Checksum:0xb656
-Flash Verify Done: 7612 bytes verified.
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7612 bytes programmed.
-Checksum:0xb656
-Flash Verify Done: 7612 bytes verified.
-compiling main.c...
-MAIN.C(19): warning C280: 'i': unreferenced local variable
-main.c - 0 Error(s), 1 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=124.0 xdata=0 code=7371
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7371 bytes programmed.
-Checksum:0x9e92
-Flash Verify Done: 7371 bytes verified.
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=126.0 xdata=0 code=7408
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7408 bytes programmed.
-Checksum:0xcc39
-Flash Verify Done: 7408 bytes verified.
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-compiling Init.c...
-linking...
-Program Size: data=126.0 xdata=0 code=7405
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7405 bytes programmed.
-Checksum:0xcf78
-Flash Verify Done: 7405 bytes verified.
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-compiling Init.c...
-linking...
-Program Size: data=126.0 xdata=0 code=7415
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7415 bytes programmed.
-Checksum:0xd5fa
-Flash Verify Done: 7415 bytes verified.
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=126.0 xdata=0 code=7415
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7415 bytes programmed.
-Checksum:0xd5d7
-Flash Verify Done: 7415 bytes verified.
-compiling main.c...
-MAIN.C(19): warning C280: 'i': unreferenced local variable
-main.c - 0 Error(s), 1 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=124.0 xdata=0 code=7371
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7371 bytes programmed.
-Checksum:0x9e92
-Flash Verify Done: 7371 bytes verified.
-compiling main.c...
-MAIN.C(19): warning C280: 'i': unreferenced local variable
-main.c - 0 Error(s), 1 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=124.0 xdata=0 code=7371
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7371 bytes programmed.
-Checksum:0x9e38
-Flash Verify Done: 7371 bytes verified.
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=102.0 xdata=0 code=7612
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7612 bytes programmed.
-Checksum:0xb5fc
-Flash Verify Done: 7612 bytes verified.
-compiling main.c...
-MAIN.C(19): warning C280: 'i': unreferenced local variable
-main.c - 0 Error(s), 1 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=124.0 xdata=0 code=7371
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7371 bytes programmed.
-Checksum:0x9dd9
-Flash Verify Done: 7371 bytes verified.
-compiling main.c...
-MAIN.C(19): warning C280: 'i': unreferenced local variable
-main.c - 0 Error(s), 1 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=124.0 xdata=0 code=7371
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7371 bytes programmed.
-Checksum:0x9dda
-Flash Verify Done: 7371 bytes verified.
-compiling main.c...
-MAIN.C(19): warning C280: 'i': unreferenced local variable
-main.c - 0 Error(s), 1 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=124.0 xdata=0 code=7371
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7371 bytes programmed.
-Checksum:0x9ddd
-Flash Verify Done: 7371 bytes verified.
-compiling main.c...
-MAIN.C(19): warning C280: 'i': unreferenced local variable
-main.c - 0 Error(s), 1 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=124.0 xdata=0 code=7371
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7371 bytes programmed.
-Checksum:0x9de7
-Flash Verify Done: 7371 bytes verified.
-compiling main.c...
-MAIN.C(19): warning C280: 'i': unreferenced local variable
-main.c - 0 Error(s), 1 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=124.0 xdata=0 code=7371
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7371 bytes programmed.
-Checksum:0x9de0
-Flash Verify Done: 7371 bytes verified.
-compiling main.c...
-MAIN.C(19): warning C280: 'i': unreferenced local variable
-main.c - 0 Error(s), 1 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=124.0 xdata=0 code=7371
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7371 bytes programmed.
-Checksum:0x9de7
-Flash Verify Done: 7371 bytes verified.
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=102.0 xdata=0 code=7602
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7602 bytes programmed.
-Checksum:0xb1bf
-Flash Verify Done: 7602 bytes verified.
-compiling main.c...
-main.c(5): warning C318: can't open file 'time3.h'
-MAIN.C(106): error C202: 'timeFlag': undefined identifier
-MAIN.C(108): error C202: 'timeFlag': undefined identifier
-main.c - 2 Error(s), 1 Warning(s).
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-compiling Init.c...
-compiling Timer3.c...
-linking...
-Program Size: data=103.0 xdata=0 code=7541
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7541 bytes programmed.
-Checksum:0x969d
-Flash Verify Done: 7541 bytes verified.
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-compiling Init.c...
-linking...
-Program Size: data=103.0 xdata=0 code=7547
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7547 bytes programmed.
-Checksum:0x97e2
-Flash Verify Done: 7547 bytes verified.
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-compiling Timer3.c...
-linking...
-Program Size: data=103.0 xdata=0 code=7578
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-assembling STARTUP.A51...
-compiling main.c...
-compiling Character.c...
+MAIN.C(201): warning C206: 'itoa': missing function-prototype
+MAIN.C(201): error C267: 'itoa': requires ANSI-style prototype
+main.c - 1 Error(s), 1 Warning(s).
 compiling CompositeChars.c...
-compiling Init.c...
-compiling key.c...
-compiling lcd.c...
-compiling Timer3.c...
-linking...
-Program Size: data=103.0 xdata=0 code=7578
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
+Common\CompositeChars.c - 0 Error(s), 0 Warning(s).
 Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7578 bytes programmed.
-Checksum:0xa6d8
-Flash Verify Done: 7578 bytes verified.
-compiling Timer3.c...
-Peripheral_C\Timer3.c - 0 Error(s), 0 Warning(s).
+_____^
+*** error 56: can't open file
+Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
+_____^
+*** error 56: can't open file
+compiling main.c...
+MAIN.C(201): warning C206: 'itoa': missing function-prototype
+MAIN.C(201): error C267: 'itoa': requires ANSI-style prototype
+main.c - 1 Error(s), 1 Warning(s).
+compiling main.c...
+MAIN.C(201): warning C206: 'itoa': missing function-prototype
+MAIN.C(201): error C267: 'itoa': requires ANSI-style prototype
+main.c - 1 Error(s), 1 Warning(s).
 compiling main.c...
 main.c - 0 Error(s), 0 Warning(s).
 Build target 'Target 1'
-linking...
-Program Size: data=103.0 xdata=0 code=7578
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-assembling STARTUP.A51...
-compiling main.c...
 compiling Character.c...
-compiling CompositeChars.c...
 compiling Init.c...
-compiling key.c...
-compiling lcd.c...
 compiling Timer3.c...
 linking...
-Program Size: data=103.0 xdata=0 code=7578
+Program Size: data=103.0 xdata=0 code=8246
 ".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
 Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
 Flash Erase Done.
 Flash Image Update Complete. 
 Beginning programming...
-Flash Program Done: 7578 bytes programmed.
-Checksum:0xa6e2
-Flash Verify Done: 7578 bytes verified.
+Flash Program Done: 8246 bytes programmed.
+Checksum:0xa017
+Flash Verify Done: 8246 bytes verified.
 compiling main.c...
 main.c - 0 Error(s), 0 Warning(s).
 Build target 'Target 1'
-compiling Timer3.c...
 linking...
-Program Size: data=103.0 xdata=0 code=7578
+Program Size: data=103.0 xdata=0 code=8251
 ".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
 Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
 Flash Erase Done.
 Flash Image Update Complete. 
 Beginning programming...
-Flash Program Done: 7578 bytes programmed.
-Checksum:0xa6dd
-Flash Verify Done: 7578 bytes verified.
+Flash Program Done: 8251 bytes programmed.
+Checksum:0x7d87
+Flash Verify Done: 8251 bytes verified.
 compiling main.c...
 main.c - 0 Error(s), 0 Warning(s).
 Build target 'Target 1'
-compiling Timer3.c...
 linking...
-Program Size: data=103.0 xdata=0 code=7578
+Program Size: data=103.0 xdata=0 code=8226
 ".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
 Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
 Flash Erase Done.
 Flash Image Update Complete. 
 Beginning programming...
-Flash Program Done: 7578 bytes programmed.
-Checksum:0xa6d6
-Flash Verify Done: 7578 bytes verified.
+Flash Program Done: 8226 bytes programmed.
+Checksum:0x62e1
+Flash Verify Done: 8226 bytes verified.
 compiling main.c...
 main.c - 0 Error(s), 0 Warning(s).
 Build target 'Target 1'
-compiling Timer3.c...
+compiling Character.c...
 linking...
-Program Size: data=103.0 xdata=0 code=7570
+Program Size: data=103.0 xdata=0 code=8235
 ".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
 Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
 Flash Erase Done.
 Flash Image Update Complete. 
 Beginning programming...
-Flash Program Done: 7570 bytes programmed.
-Checksum:0xa4e1
-Flash Verify Done: 7570 bytes verified.
+Flash Program Done: 8235 bytes programmed.
+Checksum:0x6ecc
+Flash Verify Done: 8235 bytes verified.
 compiling main.c...
 main.c - 0 Error(s), 0 Warning(s).
 Build target 'Target 1'
-compiling Timer3.c...
+compiling Character.c...
 linking...
-Program Size: data=103.0 xdata=0 code=7570
+Program Size: data=103.0 xdata=0 code=7874
 ".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
 Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
 Flash Erase Done.
 Flash Image Update Complete. 
 Beginning programming...
-Flash Program Done: 7570 bytes programmed.
-Checksum:0xa4e0
-Flash Verify Done: 7570 bytes verified.
-compiling Timer3.c...
-Peripheral_C\Timer3.c - 0 Error(s), 0 Warning(s).
+Flash Program Done: 7874 bytes programmed.
+Checksum:0x174d
+Flash Verify Done: 7874 bytes verified.
+compiling main.c...
+main.c - 0 Error(s), 0 Warning(s).
 Build target 'Target 1'
 linking...
-Program Size: data=103.0 xdata=0 code=7570
+Program Size: data=108.0 xdata=0 code=7929
 ".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
 Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
 Flash Erase Done.
 Flash Image Update Complete. 
 Beginning programming...
-Flash Program Done: 7570 bytes programmed.
-Checksum:0xa4d0
-Flash Verify Done: 7570 bytes verified.
-compiling Timer3.c...
-PERIPHERAL_C\TIMER3.C(14): error C202: 'TMR3LL': undefined identifier
-PERIPHERAL_C\TIMER3.C(15): error C202: 'TMR3LH': undefined identifier
-Peripheral_C\Timer3.c - 2 Error(s), 0 Warning(s).
+Flash Program Done: 7929 bytes programmed.
+Checksum:0x270f
+Flash Verify Done: 7929 bytes verified.
 compiling main.c...
 main.c - 0 Error(s), 0 Warning(s).
 Build target 'Target 1'
 compiling Init.c...
-compiling Timer3.c...
-PERIPHERAL_C\TIMER3.C(14): error C202: 'TMR3LL': undefined identifier
-PERIPHERAL_C\TIMER3.C(15): error C202: 'TMR3LH': undefined identifier
-Target not created
-compiling Timer3.c...
-Peripheral_C\Timer3.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
 linking...
-Program Size: data=103.0 xdata=0 code=7570
+Program Size: data=110.0 xdata=0 code=7918
 ".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
 Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
 Flash Erase Done.
 Flash Image Update Complete. 
 Beginning programming...
-Flash Program Done: 7570 bytes programmed.
-Checksum:0xa4f6
-Flash Verify Done: 7570 bytes verified.
-compiling Timer3.c...
-Peripheral_C\Timer3.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=103.0 xdata=0 code=7570
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7570 bytes programmed.
-Checksum:0xa4fb
-Flash Verify Done: 7570 bytes verified.
+Flash Program Done: 7918 bytes programmed.
+Checksum:0x2a6a
+Flash Verify Done: 7918 bytes verified.
 compiling main.c...
 main.c - 0 Error(s), 0 Warning(s).
 Build target 'Target 1'
-compiling Timer3.c...
 linking...
-Program Size: data=103.0 xdata=0 code=7570
+Program Size: data=110.0 xdata=0 code=7918
 ".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
 Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
 Flash Erase Done.
 Flash Image Update Complete. 
 Beginning programming...
-Flash Program Done: 7570 bytes programmed.
-Checksum:0xa4f9
-Flash Verify Done: 7570 bytes verified.
-compiling Timer3.c...
-Peripheral_C\Timer3.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=103.0 xdata=0 code=7570
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7570 bytes programmed.
-Checksum:0xa4fa
-Flash Verify Done: 7570 bytes verified.
-compiling Timer3.c...
-Peripheral_C\Timer3.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-Program Size: data=103.0 xdata=0 code=7570
-".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
-Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
-Flash Erase Done.
-Flash Image Update Complete. 
-Beginning programming...
-Flash Program Done: 7570 bytes programmed.
-Checksum:0xa4fb
-Flash Verify Done: 7570 bytes verified.
+Flash Program Done: 7918 bytes programmed.
+Checksum:0x24e9
+Flash Verify Done: 7918 bytes verified.
 compiling main.c...
 main.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=110.0 xdata=0 code=7913
+".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
+Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
+Flash Erase Done.
+Flash Image Update Complete. 
+Beginning programming...
+Flash Program Done: 7913 bytes programmed.
+Checksum:0x22a5
+Flash Verify Done: 7913 bytes verified.
+compiling main.c...
+main.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=110.0 xdata=0 code=7910
+".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
+Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
+Flash Erase Done.
+Flash Image Update Complete. 
+Beginning programming...
+Flash Program Done: 7910 bytes programmed.
+Checksum:0x1fc6
+Flash Verify Done: 7910 bytes verified.
+Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
+Flash Erase Done.
+Flash Image Update Complete. 
+Beginning programming...
+Flash Program Done: 7910 bytes programmed.
+Checksum:0x1fc6
+Flash Verify Done: 7910 bytes verified.
+compiling main.c...
+main.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=110.0 xdata=0 code=7910
+".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
+Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
+Flash Erase Done.
+Flash Image Update Complete. 
+Beginning programming...
+Flash Program Done: 7910 bytes programmed.
+Checksum:0x1fc6
+Flash Verify Done: 7910 bytes verified.
+compiling main.c...
+main.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=110.0 xdata=0 code=7910
+".\Object\StepMotorControl" - 0 Error(s), 0 Warning(s).
+Load "E:\\WindowsDesktop\\Control\\Project_4\\Object\\StepMotorControl" 
+Flash Erase Done.
+Flash Image Update Complete. 
+Beginning programming...
+Flash Program Done: 7910 bytes programmed.
+Checksum:0x1fc6
+Flash Verify Done: 7910 bytes verified.
