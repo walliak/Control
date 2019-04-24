@@ -1,4 +1,4 @@
-C51 COMPILER V9.00   TIMER3                                                                04/08/2019 18:19:43 PAGE 1   
+C51 COMPILER V9.00   TIMER3                                                                04/24/2019 18:42:25 PAGE 1   
 
 
 C51 COMPILER V9.00, COMPILATION OF MODULE TIMER3
@@ -62,7 +62,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =      8    ----
-C51 COMPILER V9.00   TIMER3                                                                04/08/2019 18:19:43 PAGE 2   
+C51 COMPILER V9.00   TIMER3                                                                04/24/2019 18:42:25 PAGE 2   
 
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----

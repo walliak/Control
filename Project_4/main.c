@@ -48,10 +48,10 @@ void Main()
 			{
 			 	case 1:	//顺时针转
 						Clear(); //清屏
-						Show(); 			
+						Show();
+						DrawhanziS("6",0,0); 			
 						while(1)
 						{
-							DrawhanziS("6",0,0);
 							Motor_CW();
 							flag=KeyScan();							
 							if(flag==1)
@@ -65,10 +65,10 @@ void Main()
 						break;
 				case 2:	//逆时针转
 						Clear(); //清屏
-						Show(); 						
+						Show();
+						DrawhanziS("6",1,0); 						
 						while(1)
-						{
-							DrawhanziS("6",1,0);
+						{							
 							Motor_CCW();
 							flag=KeyScan();
 							if(flag==2)

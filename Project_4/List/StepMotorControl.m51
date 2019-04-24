@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        04/08/2019  19:48:04  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        04/24/2019  18:50:34  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -59,7 +59,7 @@ LINK MAP OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
             CODE    0073H     0003H     ABSOLUTE     
             CODE    0076H     06F0H     UNIT         ?CO?CHARACTER
             CODE    0766H     03ABH     UNIT         ?PR?_DRAWHANZIFIX?LCD
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 2
 
 
             CODE    0B11H     0312H     UNIT         ?PR?_DRAWCHAR?LCD
@@ -119,7 +119,7 @@ SEGMENT                                      DATA_GROUP
 
 ?PR?MAIN?MAIN                              0008H    0006H
   +--> ?PR?INIT_DEVICE?INIT
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 3
 
 
   +--> ?CO?MAIN
@@ -179,7 +179,7 @@ SEGMENT                                      DATA_GROUP
   +--> ?PR?_DRAWHANZIFIX?LCD
 
 ?PR?_DRAWHANZIFIX?LCD                      001AH    0004H
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 4
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 4
 
 
   +--> ?CO?CHARACTER
@@ -239,7 +239,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   N:0000H         SYMBOL        XDATALEN
   N:0000H         SYMBOL        XDATASTART
   C:0000H         LINE#         126
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 5
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 5
 
 
   C:1A11H         LINE#         133
@@ -299,7 +299,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   C:14D8H         LINE#         39
   C:14DBH         LINE#         41
   C:14DBH         LINE#         42
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 6
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 6
 
 
   C:14DBH         LINE#         43
@@ -312,8 +312,8 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   C:1516H         LINE#         50
   C:1519H         LINE#         51
   C:151CH         LINE#         52
-  C:151CH         LINE#         53
-  C:151CH         LINE#         54
+  C:1529H         LINE#         53
+  C:1529H         LINE#         54
   C:1529H         LINE#         55
   C:152CH         LINE#         56
   C:1531H         LINE#         57
@@ -329,8 +329,8 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   C:153BH         LINE#         67
   C:153EH         LINE#         68
   C:1541H         LINE#         69
-  C:1541H         LINE#         70
-  C:1541H         LINE#         71
+  C:154FH         LINE#         70
+  C:154FH         LINE#         71
   C:154FH         LINE#         72
   C:1552H         LINE#         73
   C:1557H         LINE#         74
@@ -359,7 +359,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   C:15DBH         LINE#         97
   C:15DBH         LINE#         98
   C:15DDH         LINE#         99
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 7
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 7
 
 
   C:15DDH         LINE#         100
@@ -419,7 +419,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   -------         ENDDO         
   C:1E1AH         LINE#         156
   C:1E1AH         LINE#         157
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 8
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 8
 
 
   C:1E1AH         LINE#         159
@@ -479,7 +479,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   C:0176H         PUBLIC        AsciiFontData
   C:0096H         PUBLIC        DzkCode
   C:0076H         PUBLIC        Fix
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 9
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 9
 
 
   -------         ENDMOD        CHARACTER
@@ -539,7 +539,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   D:002FH         SYMBOL        S_minute
   D:0033H         SYMBOL        S_second
   D:0037H         SYMBOL        temp
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 10
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 10
 
 
   D:0007H         SYMBOL        i
@@ -599,7 +599,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   D:00A7H         PUBLIC        P3MDOUT
   C:1EBAH         PUBLIC        Port_IO_Init
   D:00D8H         PUBLIC        PCA0CN
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 11
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 11
 
 
   D:00B8H         PUBLIC        IP
@@ -659,7 +659,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   -------         ENDPROC       OSCILLATOR_INIT
   -------         PROC          INTERRUPTS_INIT
   C:1ECEH         LINE#         47
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 12
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 12
 
 
   C:1ECEH         LINE#         48
@@ -719,7 +719,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   -------         MODULE        KEY
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0084H         PUBLIC        P4
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 13
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 13
 
 
   D:00E8H         PUBLIC        ADC0CN
@@ -779,7 +779,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   C:180DH         LINE#         63
   C:1815H         LINE#         64
   C:1815H         LINE#         65
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 14
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 14
 
 
   C:1825H         LINE#         66
@@ -839,7 +839,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   -------         DO            
   D:0004H         SYMBOL        i
   -------         ENDDO         
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 15
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 15
 
 
   C:1CE3H         LINE#         13
@@ -899,7 +899,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   D:0006H         SYMBOL        dat
   C:0062H         LINE#         57
   C:0064H         LINE#         59
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 16
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 16
 
 
   C:0064H         LINE#         61
@@ -959,7 +959,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   -------         PROC          _LCD_DRAW_POINT
   D:0007H         SYMBOL        x
   D:0005H         SYMBOL        y
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 17
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 17
 
 
   C:1EC4H         LINE#         126
@@ -1019,7 +1019,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   D:001AH         SYMBOL        b
   D:001BH         SYMBOL        Row
   D:001CH         SYMBOL        Col
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 18
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 18
 
 
   D:001DH         SYMBOL        k
@@ -1079,7 +1079,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   D:000EH         SYMBOL        C
   D:0005H         SYMBOL        row
   D:0012H         SYMBOL        col
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 19
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 19
 
 
   -------         DO            
@@ -1139,7 +1139,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   C:0E6CH         LINE#         336
   C:0E8BH         LINE#         337
   C:0E97H         LINE#         339
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 20
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 20
 
 
   C:0EB6H         LINE#         340
@@ -1199,7 +1199,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   C:07BAH         LINE#         415
   C:07E4H         LINE#         416
   C:07F0H         LINE#         418
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 21
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 21
 
 
   C:081AH         LINE#         419
@@ -1259,7 +1259,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   C:186FH         LINE#         489
   C:1886H         LINE#         490
   C:1893H         LINE#         491
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 22
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 22
 
 
   C:18A2H         LINE#         492
@@ -1319,7 +1319,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   -------         PROC          CLOSETIMER3
   C:1EE5H         LINE#         24
   C:1EE5H         LINE#         25
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 23
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 23
 
 
   C:1EE5H         LINE#         26
@@ -1379,7 +1379,7 @@ SYMBOL TABLE OF MODULE:  .\Object\StepMotorControl (?C_STARTUP)
   C:12FDH         PUBLIC        ?C?STRCPY
   -------         ENDMOD        ?C?STRCPY
 
-BL51 BANKED LINKER/LOCATER V6.22                                                      04/08/2019  19:48:04  PAGE 24
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/24/2019  18:50:34  PAGE 24
 
 
   -------         MODULE        STRLEN
