@@ -1,7 +1,0 @@
-"STARTUP.obj",
-"adc.obj",
-"key.obj",
-"lcd.obj",
-"main.obj" 
-TO "Clock" 
-RAMSIZE(256) 

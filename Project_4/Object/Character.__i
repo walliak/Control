@@ -1,1 +1,0 @@
-"Common\Character.c" BROWSE INCDIR(.\Peripheral_H;.\Common) DEBUG OBJECTEXTEND PRINT(.\List\Character.lst) OBJECT(.\Object\Character.obj)
