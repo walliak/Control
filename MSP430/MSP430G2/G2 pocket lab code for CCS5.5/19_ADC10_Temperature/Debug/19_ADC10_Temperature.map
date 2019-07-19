@@ -1,0 +1,625 @@
+******************************************************************************
+                  MSP430 Linker PC v4.4.3                      
+******************************************************************************
+>> Linked Wed Jul 10 17:17:54 2019
+
+OUTPUT FILE NAME:   <19_ADC10_Temperature.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs_noexit"  address: 0000cc92
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  SFR                   00000000   00000010  00000000  00000010  RWIX
+  PERIPHERALS_8BIT      00000010   000000f0  00000000  000000f0  RWIX
+  PERIPHERALS_16BIT     00000100   00000100  00000000  00000100  RWIX
+  RAM                   00000200   00000200  00000074  0000018c  RWIX
+  INFOD                 00001000   00000040  00000000  00000040  RWIX
+  INFOC                 00001040   00000040  00000000  00000040  RWIX
+  INFOB                 00001080   00000040  00000000  00000040  RWIX
+  INFOA                 000010c0   00000040  00000000  00000040  RWIX
+  FLASH                 0000c000   00003fe0  00000d60  00003280  RWIX
+  INT00                 0000ffe0   00000002  00000002  00000000  RWIX
+  INT01                 0000ffe2   00000002  00000002  00000000  RWIX
+  INT02                 0000ffe4   00000002  00000002  00000000  RWIX
+  INT03                 0000ffe6   00000002  00000002  00000000  RWIX
+  INT04                 0000ffe8   00000002  00000002  00000000  RWIX
+  INT05                 0000ffea   00000002  00000002  00000000  RWIX
+  INT06                 0000ffec   00000002  00000002  00000000  RWIX
+  INT07                 0000ffee   00000002  00000002  00000000  RWIX
+  INT08                 0000fff0   00000002  00000002  00000000  RWIX
+  INT09                 0000fff2   00000002  00000002  00000000  RWIX
+  INT10                 0000fff4   00000002  00000002  00000000  RWIX
+  INT11                 0000fff6   00000002  00000002  00000000  RWIX
+  INT12                 0000fff8   00000002  00000002  00000000  RWIX
+  INT13                 0000fffa   00000002  00000002  00000000  RWIX
+  INT14                 0000fffc   00000002  00000002  00000000  RWIX
+  RESET                 0000fffe   00000002  00000002  00000000  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.bss       0    00000200    00000024     UNINITIALIZED
+                  00000200    00000010     LCD_128.obj (.bss)
+                  00000210    00000008     main.obj (.bss)
+                  00000218    00000007     I2C.obj (.bss)
+                  0000021f    00000001     --HOLE--
+                  00000220    00000004     TCA6416A.obj (.bss)
+
+.stack     0    000003b0    00000050     UNINITIALIZED
+                  000003b0    00000002     rts430.lib : boot.obj (.stack)
+                  000003b2    0000004e     --HOLE--
+
+.text      0    0000c000    00000d26     
+                  0000c000    0000053a     LCD_128.obj (.text:LCD_DisplayDigit)
+                  0000c53a    000000e4     HT1621.obj (.text:HT1621_init)
+                  0000c61e    000000b8     TCA6416A.obj (.text:PinOUT)
+                  0000c6d6    000000ac     main.obj (.text:LCD_Display)
+                  0000c782    00000088     HT1621.obj (.text:HT1621_Reflash)
+                  0000c80a    0000006e     TCA6416A.obj (.text:TCA6416A_Init)
+                  0000c878    0000005a     main.obj (.text:main)
+                  0000c8d2    00000058     main.obj (.text:LCD_Init)
+                  0000c92a    00000058     rts430.lib : div32u.obj (.text)
+                  0000c982    0000004c                : lsr16.obj (.text)
+                  0000c9ce    00000048                : autoinit.obj (.text:_auto_init)
+                  0000ca16    00000040                : div32s.obj (.text)
+                  0000ca56    0000003e     I2C.obj (.text:USCIAB0TX_ISR)
+                  0000ca94    00000038     I2C.obj (.text:I2C_Init)
+                  0000cacc    00000036     HT1621.obj (.text:HT1621_SendBit)
+                  0000cb02    0000002c     rts430.lib : asr16.obj (.text)
+                  0000cb2e    0000002c                : div16s.obj (.text)
+                  0000cb5a    0000002c                : lsl16.obj (.text)
+                  0000cb86    00000026     I2C.obj (.text:I2C_TxFrame)
+                  0000cbac    00000026     rts430.lib : mult32.obj (.text)
+                  0000cbd2    00000024     main.obj (.text:ADC10_init)
+                  0000cbf6    00000022     I2C.obj (.text:I2C_TxFrame_ISR)
+                  0000cc18    00000020     I2C.obj (.text:I2C_Tx_Init)
+                  0000cc38    0000001e     I2C.obj (.text:I2C_RxFrame_ISR)
+                  0000cc56    0000001e     LCD_128.obj (.text:LCD_ClearSeg)
+                  0000cc74    0000001e     LCD_128.obj (.text:LCD_DisplaySeg)
+                  0000cc92    0000001a     rts430.lib : boot_special.obj (.text:_c_int00_noargs_noexit)
+                  0000ccac    00000018     TCA6416A.obj (.text:TCA6416_Tx_Frame)
+                  0000ccc4    00000016     rts430.lib : div16u.obj (.text)
+                  0000ccda    00000014                : memset.obj (.text:memset)
+                  0000ccee    00000012                : memcpy.obj (.text:memcpy)
+                  0000cd00    00000010                : epilog.obj (.text)
+                  0000cd10    00000008     main.obj (.text:ADC10_ISR_HOOK)
+                  0000cd18    00000006     rts430.lib : isr_trap.obj (.text:_isr:__TI_ISR_TRAP)
+                  0000cd1e    00000004                : pre_init.obj (.text:_system_pre_init)
+                  0000cd22    00000004                : exit.obj (.text:abort)
+
+.cinit     0    0000cd26    0000003a     
+                  0000cd26    00000014     LCD_128.obj (.cinit)
+                  0000cd3a    00000011     I2C.obj (.cinit)
+                  0000cd4b    00000001     --HOLE-- [fill = 0]
+                  0000cd4c    00000011     TCA6416A.obj (.cinit)
+                  0000cd5d    00000001     --HOLE-- [fill = 0]
+                  0000cd5e    00000002     (.pad.cinit) [fill = 0]
+
+.pinit     0    0000c000    00000000     UNINITIALIZED
+
+.int00     0    0000ffe0    00000002     
+                  0000ffe0    00000002     rts430.lib : int00.obj (.int00)
+
+.int01     0    0000ffe2    00000002     
+                  0000ffe2    00000002     rts430.lib : int01.obj (.int01)
+
+.int02     0    0000ffe4    00000002     
+                  0000ffe4    00000002     rts430.lib : int02.obj (.int02)
+
+.int03     0    0000ffe6    00000002     
+                  0000ffe6    00000002     rts430.lib : int03.obj (.int03)
+
+.int04     0    0000ffe8    00000002     
+                  0000ffe8    00000002     rts430.lib : int04.obj (.int04)
+
+.int05     0    0000ffea    00000002     
+                  0000ffea    00000002     main.obj (.int05)
+
+.int06     0    0000ffec    00000002     
+                  0000ffec    00000002     I2C.obj (.int06)
+
+.int07     0    0000ffee    00000002     
+                  0000ffee    00000002     rts430.lib : int07.obj (.int07)
+
+.int08     0    0000fff0    00000002     
+                  0000fff0    00000002     rts430.lib : int08.obj (.int08)
+
+.int09     0    0000fff2    00000002     
+                  0000fff2    00000002     rts430.lib : int09.obj (.int09)
+
+.int10     0    0000fff4    00000002     
+                  0000fff4    00000002     rts430.lib : int10.obj (.int10)
+
+.int11     0    0000fff6    00000002     
+                  0000fff6    00000002     rts430.lib : int11.obj (.int11)
+
+.int12     0    0000fff8    00000002     
+                  0000fff8    00000002     rts430.lib : int12.obj (.int12)
+
+.int13     0    0000fffa    00000002     
+                  0000fffa    00000002     rts430.lib : int13.obj (.int13)
+
+.int14     0    0000fffc    00000002     
+                  0000fffc    00000002     rts430.lib : int14.obj (.int14)
+
+.reset     0    0000fffe    00000002     
+                  0000fffe    00000002     rts430.lib : boot.obj (.reset)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                  
+-------   ----                  
+00000200  .bss                  
+0000c000  .text                 
+0000004a  ADC10AE0              
+000001b0  ADC10CTL0             
+000001b2  ADC10CTL1             
+00000048  ADC10DTC0             
+00000049  ADC10DTC1             
+000001b4  ADC10MEM              
+000001bc  ADC10SA               
+0000cd10  ADC10_ISR_HOOK        
+0000cbd2  ADC10_init            
+00000057  BCSCTL1               
+00000058  BCSCTL2               
+00000053  BCSCTL3               
+0000cd22  C$$EXIT               
+00000059  CACTL1                
+0000005a  CACTL2                
+000010fb  CALBC1_12MHZ          
+000010f9  CALBC1_16MHZ          
+000010ff  CALBC1_1MHZ           
+000010fd  CALBC1_8MHZ           
+000010fa  CALDCO_12MHZ          
+000010f8  CALDCO_16MHZ          
+000010fe  CALDCO_1MHZ           
+000010fc  CALDCO_8MHZ           
+0000005b  CAPD                  
+00000056  DCOCTL                
+00000128  FCTL1                 
+0000012a  FCTL2                 
+0000012c  FCTL3                 
+0000c782  HT1621_Reflash        
+0000cacc  HT1621_SendBit        
+0000c53a  HT1621_init           
+0000ca94  I2C_Init              
+0000cc38  I2C_RxFrame_ISR       
+0000021e  I2C_State             
+0000cb86  I2C_TxFrame           
+0000cbf6  I2C_TxFrame_ISR       
+0000cc18  I2C_Tx_Init           
+00000000  IE1                   
+00000001  IE2                   
+00000002  IFG1                  
+00000003  IFG2                  
+0000cb02  I_ASR                 
+0000cb2a  I_ASR_1               
+0000cb18  I_ASR_10              
+0000cb16  I_ASR_11              
+0000cb14  I_ASR_12              
+0000cb12  I_ASR_13              
+0000cb10  I_ASR_14              
+0000cb0e  I_ASR_15              
+0000cb28  I_ASR_2               
+0000cb26  I_ASR_3               
+0000cb24  I_ASR_4               
+0000cb22  I_ASR_5               
+0000cb20  I_ASR_6               
+0000cb1e  I_ASR_7               
+0000cb1c  I_ASR_8               
+0000cb1a  I_ASR_9               
+0000cb5a  I_LSL                 
+0000cb82  I_LSL_1               
+0000cb70  I_LSL_10              
+0000cb6e  I_LSL_11              
+0000cb6c  I_LSL_12              
+0000cb6a  I_LSL_13              
+0000cb68  I_LSL_14              
+0000cb66  I_LSL_15              
+0000cb80  I_LSL_2               
+0000cb7e  I_LSL_3               
+0000cb7c  I_LSL_4               
+0000cb7a  I_LSL_5               
+0000cb78  I_LSL_6               
+0000cb76  I_LSL_7               
+0000cb74  I_LSL_8               
+0000cb72  I_LSL_9               
+0000c982  I_LSR                 
+0000c9c8  I_LSR_1               
+0000c9a4  I_LSR_10              
+0000c9a0  I_LSR_11              
+0000c99c  I_LSR_12              
+0000c998  I_LSR_13              
+0000c994  I_LSR_14              
+0000c990  I_LSR_15              
+0000c9c4  I_LSR_2               
+0000c9c0  I_LSR_3               
+0000c9bc  I_LSR_4               
+0000c9b8  I_LSR_5               
+0000c9b4  I_LSR_6               
+0000c9b0  I_LSR_7               
+0000c9ac  I_LSR_8               
+0000c9a8  I_LSR_9               
+00000214  IntDeg                
+00000200  LCD_Buffer            
+0000cc56  LCD_ClearSeg          
+0000c6d6  LCD_Display           
+0000c000  LCD_DisplayDigit      
+0000cc74  LCD_DisplaySeg        
+0000c8d2  LCD_Init              
+00000022  P1DIR                 
+00000025  P1IE                  
+00000024  P1IES                 
+00000023  P1IFG                 
+00000020  P1IN                  
+00000021  P1OUT                 
+00000027  P1REN                 
+00000026  P1SEL                 
+00000041  P1SEL2                
+0000002a  P2DIR                 
+0000002d  P2IE                  
+0000002c  P2IES                 
+0000002b  P2IFG                 
+00000028  P2IN                  
+00000029  P2OUT                 
+0000002f  P2REN                 
+0000002e  P2SEL                 
+00000042  P2SEL2                
+0000001a  P3DIR                 
+00000018  P3IN                  
+00000019  P3OUT                 
+00000010  P3REN                 
+0000001b  P3SEL                 
+00000043  P3SEL2                
+0000c61e  PinOUT                
+00000172  TA0CCR0               
+00000174  TA0CCR1               
+00000176  TA0CCR2               
+00000162  TA0CCTL0              
+00000164  TA0CCTL1              
+00000166  TA0CCTL2              
+00000160  TA0CTL                
+0000012e  TA0IV                 
+00000170  TA0R                  
+00000192  TA1CCR0               
+00000194  TA1CCR1               
+00000196  TA1CCR2               
+00000182  TA1CCTL0              
+00000184  TA1CCTL1              
+00000186  TA1CCTL2              
+00000180  TA1CTL                
+0000011e  TA1IV                 
+00000190  TA1R                  
+0000c80a  TCA6416A_Init         
+00000220  TCA6416A_InputBuffer  
+0000ccac  TCA6416_Tx_Frame      
+000010db  TLV_ADC10_1_LEN       
+000010da  TLV_ADC10_1_TAG       
+000010c0  TLV_CHECKSUM          
+000010f7  TLV_DCO_30_LEN        
+000010f6  TLV_DCO_30_TAG        
+0000005d  UCA0ABCTL             
+00000062  UCA0BR0               
+00000063  UCA0BR1               
+00000060  UCA0CTL0              
+00000061  UCA0CTL1              
+0000005f  UCA0IRRCTL            
+0000005e  UCA0IRTCTL            
+00000064  UCA0MCTL              
+00000066  UCA0RXBUF             
+00000065  UCA0STAT              
+00000067  UCA0TXBUF             
+0000006a  UCB0BR0               
+0000006b  UCB0BR1               
+00000068  UCB0CTL0              
+00000069  UCB0CTL1              
+0000006c  UCB0I2CIE             
+00000118  UCB0I2COA             
+0000011a  UCB0I2CSA             
+0000006e  UCB0RXBUF             
+0000006d  UCB0STAT              
+0000006f  UCB0TXBUF             
+0000ca56  USCIAB0TX_ISR         
+00000120  WDTCTL                
+00000400  __STACK_END           
+00000050  __STACK_SIZE          
+0000cd18  __TI_ISR_TRAP         
+0000ffe0  __TI_int00            
+0000ffe2  __TI_int01            
+0000ffe4  __TI_int02            
+0000ffe6  __TI_int03            
+0000ffe8  __TI_int04            
+0000ffea  __TI_int05            
+0000ffec  __TI_int06            
+0000ffee  __TI_int07            
+0000fff0  __TI_int08            
+0000fff2  __TI_int09            
+0000fff4  __TI_int10            
+0000fff6  __TI_int11            
+0000fff8  __TI_int12            
+0000fffa  __TI_int13            
+0000fffc  __TI_int14            
+ffffffff  __binit__             
+00000200  __bss__               
+ffffffff  __c_args__            
+0000cd26  __cinit__             
+0000cb2e  __divi                
+0000ca16  __divli               
+0000ccc4  __divu                
+0000c92a  __divul               
+00000224  __end__               
+0000cd26  __etext__             
+0000cbac  __mpyl                
+0000cbac  __mpyl_sw             
+ffffffff  __pinit__             
+0000cb2e  __remi                
+0000ca16  __remli               
+0000ccc4  __remu                
+0000c92a  __remul               
+0000c000  __text__              
+0000c9ce  _auto_init            
+0000cc92  _c_int00_noargs_noexit
+0000fffe  _reset_vector         
+000003b0  _stack                
+0000cd1e  _system_pre_init      
+0000cd22  abort                 
+ffffffff  binit                 
+0000cd26  cinit                 
+00000224  end                   
+0000cd26  etext                 
+0000cd0c  func_epilog_1         
+0000cd0a  func_epilog_2         
+0000cd08  func_epilog_3         
+0000cd06  func_epilog_4         
+0000cd04  func_epilog_5         
+0000cd02  func_epilog_6         
+0000cd00  func_epilog_7         
+0000c878  main                  
+0000ccee  memcpy                
+0000ccda  memset                
+ffffffff  pinit                 
+00000210  temp                  
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                  
+-------   ----                  
+00000000  IE1                   
+00000001  IE2                   
+00000002  IFG1                  
+00000003  IFG2                  
+00000010  P3REN                 
+00000018  P3IN                  
+00000019  P3OUT                 
+0000001a  P3DIR                 
+0000001b  P3SEL                 
+00000020  P1IN                  
+00000021  P1OUT                 
+00000022  P1DIR                 
+00000023  P1IFG                 
+00000024  P1IES                 
+00000025  P1IE                  
+00000026  P1SEL                 
+00000027  P1REN                 
+00000028  P2IN                  
+00000029  P2OUT                 
+0000002a  P2DIR                 
+0000002b  P2IFG                 
+0000002c  P2IES                 
+0000002d  P2IE                  
+0000002e  P2SEL                 
+0000002f  P2REN                 
+00000041  P1SEL2                
+00000042  P2SEL2                
+00000043  P3SEL2                
+00000048  ADC10DTC0             
+00000049  ADC10DTC1             
+0000004a  ADC10AE0              
+00000050  __STACK_SIZE          
+00000053  BCSCTL3               
+00000056  DCOCTL                
+00000057  BCSCTL1               
+00000058  BCSCTL2               
+00000059  CACTL1                
+0000005a  CACTL2                
+0000005b  CAPD                  
+0000005d  UCA0ABCTL             
+0000005e  UCA0IRTCTL            
+0000005f  UCA0IRRCTL            
+00000060  UCA0CTL0              
+00000061  UCA0CTL1              
+00000062  UCA0BR0               
+00000063  UCA0BR1               
+00000064  UCA0MCTL              
+00000065  UCA0STAT              
+00000066  UCA0RXBUF             
+00000067  UCA0TXBUF             
+00000068  UCB0CTL0              
+00000069  UCB0CTL1              
+0000006a  UCB0BR0               
+0000006b  UCB0BR1               
+0000006c  UCB0I2CIE             
+0000006d  UCB0STAT              
+0000006e  UCB0RXBUF             
+0000006f  UCB0TXBUF             
+00000118  UCB0I2COA             
+0000011a  UCB0I2CSA             
+0000011e  TA1IV                 
+00000120  WDTCTL                
+00000128  FCTL1                 
+0000012a  FCTL2                 
+0000012c  FCTL3                 
+0000012e  TA0IV                 
+00000160  TA0CTL                
+00000162  TA0CCTL0              
+00000164  TA0CCTL1              
+00000166  TA0CCTL2              
+00000170  TA0R                  
+00000172  TA0CCR0               
+00000174  TA0CCR1               
+00000176  TA0CCR2               
+00000180  TA1CTL                
+00000182  TA1CCTL0              
+00000184  TA1CCTL1              
+00000186  TA1CCTL2              
+00000190  TA1R                  
+00000192  TA1CCR0               
+00000194  TA1CCR1               
+00000196  TA1CCR2               
+000001b0  ADC10CTL0             
+000001b2  ADC10CTL1             
+000001b4  ADC10MEM              
+000001bc  ADC10SA               
+00000200  .bss                  
+00000200  LCD_Buffer            
+00000200  __bss__               
+00000210  temp                  
+00000214  IntDeg                
+0000021e  I2C_State             
+00000220  TCA6416A_InputBuffer  
+00000224  __end__               
+00000224  end                   
+000003b0  _stack                
+00000400  __STACK_END           
+000010c0  TLV_CHECKSUM          
+000010da  TLV_ADC10_1_TAG       
+000010db  TLV_ADC10_1_LEN       
+000010f6  TLV_DCO_30_TAG        
+000010f7  TLV_DCO_30_LEN        
+000010f8  CALDCO_16MHZ          
+000010f9  CALBC1_16MHZ          
+000010fa  CALDCO_12MHZ          
+000010fb  CALBC1_12MHZ          
+000010fc  CALDCO_8MHZ           
+000010fd  CALBC1_8MHZ           
+000010fe  CALDCO_1MHZ           
+000010ff  CALBC1_1MHZ           
+0000c000  .text                 
+0000c000  LCD_DisplayDigit      
+0000c000  __text__              
+0000c53a  HT1621_init           
+0000c61e  PinOUT                
+0000c6d6  LCD_Display           
+0000c782  HT1621_Reflash        
+0000c80a  TCA6416A_Init         
+0000c878  main                  
+0000c8d2  LCD_Init              
+0000c92a  __divul               
+0000c92a  __remul               
+0000c982  I_LSR                 
+0000c990  I_LSR_15              
+0000c994  I_LSR_14              
+0000c998  I_LSR_13              
+0000c99c  I_LSR_12              
+0000c9a0  I_LSR_11              
+0000c9a4  I_LSR_10              
+0000c9a8  I_LSR_9               
+0000c9ac  I_LSR_8               
+0000c9b0  I_LSR_7               
+0000c9b4  I_LSR_6               
+0000c9b8  I_LSR_5               
+0000c9bc  I_LSR_4               
+0000c9c0  I_LSR_3               
+0000c9c4  I_LSR_2               
+0000c9c8  I_LSR_1               
+0000c9ce  _auto_init            
+0000ca16  __divli               
+0000ca16  __remli               
+0000ca56  USCIAB0TX_ISR         
+0000ca94  I2C_Init              
+0000cacc  HT1621_SendBit        
+0000cb02  I_ASR                 
+0000cb0e  I_ASR_15              
+0000cb10  I_ASR_14              
+0000cb12  I_ASR_13              
+0000cb14  I_ASR_12              
+0000cb16  I_ASR_11              
+0000cb18  I_ASR_10              
+0000cb1a  I_ASR_9               
+0000cb1c  I_ASR_8               
+0000cb1e  I_ASR_7               
+0000cb20  I_ASR_6               
+0000cb22  I_ASR_5               
+0000cb24  I_ASR_4               
+0000cb26  I_ASR_3               
+0000cb28  I_ASR_2               
+0000cb2a  I_ASR_1               
+0000cb2e  __divi                
+0000cb2e  __remi                
+0000cb5a  I_LSL                 
+0000cb66  I_LSL_15              
+0000cb68  I_LSL_14              
+0000cb6a  I_LSL_13              
+0000cb6c  I_LSL_12              
+0000cb6e  I_LSL_11              
+0000cb70  I_LSL_10              
+0000cb72  I_LSL_9               
+0000cb74  I_LSL_8               
+0000cb76  I_LSL_7               
+0000cb78  I_LSL_6               
+0000cb7a  I_LSL_5               
+0000cb7c  I_LSL_4               
+0000cb7e  I_LSL_3               
+0000cb80  I_LSL_2               
+0000cb82  I_LSL_1               
+0000cb86  I2C_TxFrame           
+0000cbac  __mpyl                
+0000cbac  __mpyl_sw             
+0000cbd2  ADC10_init            
+0000cbf6  I2C_TxFrame_ISR       
+0000cc18  I2C_Tx_Init           
+0000cc38  I2C_RxFrame_ISR       
+0000cc56  LCD_ClearSeg          
+0000cc74  LCD_DisplaySeg        
+0000cc92  _c_int00_noargs_noexit
+0000ccac  TCA6416_Tx_Frame      
+0000ccc4  __divu                
+0000ccc4  __remu                
+0000ccda  memset                
+0000ccee  memcpy                
+0000cd00  func_epilog_7         
+0000cd02  func_epilog_6         
+0000cd04  func_epilog_5         
+0000cd06  func_epilog_4         
+0000cd08  func_epilog_3         
+0000cd0a  func_epilog_2         
+0000cd0c  func_epilog_1         
+0000cd10  ADC10_ISR_HOOK        
+0000cd18  __TI_ISR_TRAP         
+0000cd1e  _system_pre_init      
+0000cd22  C$$EXIT               
+0000cd22  abort                 
+0000cd26  __cinit__             
+0000cd26  __etext__             
+0000cd26  cinit                 
+0000cd26  etext                 
+0000ffe0  __TI_int00            
+0000ffe2  __TI_int01            
+0000ffe4  __TI_int02            
+0000ffe6  __TI_int03            
+0000ffe8  __TI_int04            
+0000ffea  __TI_int05            
+0000ffec  __TI_int06            
+0000ffee  __TI_int07            
+0000fff0  __TI_int08            
+0000fff2  __TI_int09            
+0000fff4  __TI_int10            
+0000fff6  __TI_int11            
+0000fff8  __TI_int12            
+0000fffa  __TI_int13            
+0000fffc  __TI_int14            
+0000fffe  _reset_vector         
+ffffffff  __binit__             
+ffffffff  __c_args__            
+ffffffff  __pinit__             
+ffffffff  binit                 
+ffffffff  pinit                 
+
+[230 symbols]

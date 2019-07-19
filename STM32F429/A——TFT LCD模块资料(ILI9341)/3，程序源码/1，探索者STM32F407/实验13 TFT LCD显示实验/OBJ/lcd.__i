@@ -1,0 +1,7 @@
+-c --cpu Cortex-M4.fp -g -O0 --apcs=interwork -I..\CORE -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\HARDWARE\LED -I..\HARDWARE\LCD -I..\FWLIB\inc
+-I "E:\WindowsDesktop\STM32F4\15,2.8寸TFT LCD模块资料(ILI9341)\15,2.8寸TFT LCD模块资料(ILI9341)\3，程序源码\1，探索者STM32F407\实验13 TFT LCD显示实验\USER\RTE"
+-I D:\keilMDK\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0
+-I D:\keilMDK\ARM\CMSIS\Include
+-I D:\keilMDK\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Device\Include
+-D__UVISION_VERSION="514" -DSTM32F407xx -DSTM32F40_41xxx -DUSE_STDPERIPH_DRIVER --C99
+-o ..\obj\lcd.o --omf_browse ..\obj\lcd.crf --depend ..\obj\lcd.d "..\HARDWARE\LCD\lcd.c"

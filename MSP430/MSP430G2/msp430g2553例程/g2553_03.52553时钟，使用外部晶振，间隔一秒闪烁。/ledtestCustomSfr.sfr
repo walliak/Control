@@ -1,0 +1,27 @@
+[Sfr]
+sfr = "IE1",	"Memory",	0x0,	1,	base=16,	modified
+sfr = "IFG1",	"Memory",	0x2,	1,	base=16,	modified
+sfr = "ADC10DTC0",	"Memory",	0x48,	1,	base=16,	modified
+sfr = "ADC10AE0",	"Memory",	0x4a,	1,	base=16,	modified
+sfr = "BCSCTL3",	"Memory",	0x53,	1,	base=16,	modified
+sfr = "FCTL1",	"Memory",	0x128,	2,	base=16,	modified
+sfr = "P1SEL",	"Memory",	0x26,	1,	base=16,	modified
+sfr = "P2IE",	"Memory",	0x2d,	1,	base=16,	modified
+sfr = "TA0R",	"Memory",	0x170,	2,	base=16,	modified
+sfr = "TA1CTL",	"Memory",	0x180,	2,	base=16,	modified
+sfr = "TA1CCTL1",	"Memory",	0x184,	2,	base=16,	modified
+sfr = "TA1CCR1",	"Memory",	0x194,	2,	base=16,	modified
+sfr = "UCB0BR0__SPI",	"Memory",	0x6a,	1,	base=16,	modified
+sfr = "UCB0CTL1",	"Memory",	0x69,	1,	base=16,	modified
+sfr = "UCB0STAT",	"Memory",	0x6d,	1,	base=16,	modified
+sfr = "UCB0I2COA",	"Memory",	0x118,	2,	base=16,	modified
+sfr = "WDTCTL",	"Memory",	0x120,	2,	base=16,	modified
+sfr = "CALBC1_1MHZ",	"Memory",	0x10ff,	1,	base=16,	modified
+
+
+[SfrGroupInfo]
+group = "Custom", "IE1", "IFG1", "ADC10DTC0"
+group = "Custom", "ADC10AE0", "BCSCTL3"
+group = "Custom", "FCTL1", "P1SEL", "P2IE", "TA0R", "TA1CTL", "TA1CCTL1", "TA1CCR1"
+group = "Custom", "UCB0BR0__SPI"
+group = "Custom", "UCB0CTL1", "UCB0STAT", "UCB0I2COA", "WDTCTL", "CALBC1_1MHZ"

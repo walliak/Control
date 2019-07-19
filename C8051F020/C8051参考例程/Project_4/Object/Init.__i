@@ -1,0 +1,1 @@
+"Peripheral_C\Init.c" BROWSE INCDIR(.\Peripheral_H;.\Common) DEBUG OBJECTEXTEND PRINT(.\List\Init.lst) OBJECT(.\Object\Init.obj)

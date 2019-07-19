@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspace>
+    <project>
+        <path>$WS_DIR$\ledtest.ewp</path>
+    </project>
+    <project>
+        <path>$WS_DIR$\..\g2553_01.g2553流水灯，P1，P2流水灯交替闪烁。\ledtest.ewp</path>
+    </project>
+    <project>
+        <path>$WS_DIR$\..\..\..\..\实验代码\test\test.ewp</path>
+    </project>
+    <batchBuild />
+</workspace>

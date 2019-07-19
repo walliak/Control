@@ -1,0 +1,394 @@
+C51 COMPILER V9.00   MAIN                                                                  07/12/2019 16:16:53 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: D:\KeilC51\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /////////////////////////////////////
+   2          //  Generated Initialization File  //
+   3          /////////////////////////////////////
+   4          
+   5          #include "C8051F020.h"
+   6          #include "key.h"
+   7          #include "Timer3.h"
+   8          #include "math.h"
+   9          #include "lcd.h"
+  10          #include "compositechars.h"
+  11          
+  12          #define SetBit(x,y) x|=(1<<y)
+  13          #define ClrBit(x,y)     x&=~(1<<y)
+  14          #define ReverseBit(x,y) x^=(1<<y)
+  15          #define GetBit(x,y)      ((x)>>(y)&1)
+  16          // Peripheral specific initialization functions,
+  17          // Called from the Init_Device() function
+  18          void DelayOneSecond(void);
+  19          
+  20          void Reset_Sources_Init()
+  21          {
+  22   1          WDTCN     = 0xDE;
+  23   1          WDTCN     = 0xAD;
+  24   1          RSTSRC    = 0x04;
+  25   1      }
+  26          
+  27          void Timer_Init()//定时器3计时1ms
+  28          {
+  29   1          CKCON     = 0x20;
+  30   1          TMR3CN    = 0x02;
+  31   1          TMR3RLL   = 0xCD;
+  32   1          TMR3RLH   = 0xD4;
+  33   1      }
+  34          
+  35          void OpenTimer3()  //开定时器
+  36          {
+  37   1              TMR3CN|=0x04;
+  38   1      }
+  39          
+  40          void CloseTimer3() //关定时器
+  41          {
+  42   1              TMR3CN&=~0X04;
+  43   1      }
+  44          void ADC_Init()
+  45          {
+  46   1          ADC0CN    = 0x84;
+  47   1      }
+  48          
+  49          void DAC_Init()
+  50          {
+  51   1          DAC0CN    = 0x88;
+  52   1          DAC1CN    = 0x80;
+  53   1      }
+  54          
+  55          void Voltage_Reference_Init()
+C51 COMPILER V9.00   MAIN                                                                  07/12/2019 16:16:53 PAGE 2   
+
+  56          {
+  57   1          REF0CN    = 0x03;
+  58   1      }
+  59          
+  60          void Port_IO_Init()
+  61          {
+  62   1          
+  63   1              /*
+  64   1              位 7-0： P3.[7:0]：端口 3 输出锁存器位。   
+  65   1              （写 － 输出出现在 I/O 引脚，根据 XBR0、XBR1 和 XBR2 寄存器的设置） 
+  66   1              0：逻辑低电平输出。 1：逻辑高电平输出。
+  67   1              （若相应的 P3MDOUT.n 位 = 0，则为漏极开路）。 
+  68   1              （读－与 XBR0、XBR1 和 XBR2 寄存器的设置无关） 
+  69   1              0：P3.n 为逻辑低电平。 1：P3.n 为逻辑高电平。
+  70   1              */
+  71   1          P3MDOUT   = 0x30;                                                   
+  72   1              
+  73   1              /*
+  74   1              UART1E：UART1 I/O 使能位   
+  75   1              0：UART1 I/O 不连到端口引脚。 
+  76   1              1：UART1 TX 和 RX 连到两个端口引脚。
+  77   1              */      
+  78   1          XBR2      = 0x40;                                                    
+  79   1      }
+  80          
+  81          void Oscillator_Init()
+  82          {
+  83   1          int i = 0;
+  84   1          OSCXCN    = 0x67;
+  85   1          for (i = 0; i < 3000; i++);  // Wait 1ms for initialization
+  86   1          while ((OSCXCN & 0x80) == 0);
+  87   1          OSCICN    = 0x08;
+  88   1      }
+  89          
+  90          void Interrupts_Init()                          
+  91          {                                                                       
+  92   1          IE        = 0x80;//打开总的中断
+  93   1          EIE2      = 0x01;//打开定时器3的中断
+  94   1      }
+  95          
+  96          // Initialization function for device,
+  97          // Call Init_Device() from your main program
+  98          void Init_Device(void)
+  99          {
+ 100   1          Reset_Sources_Init();
+ 101   1          Timer_Init();
+ 102   1          ADC_Init();
+ 103   1          DAC_Init();
+ 104   1          Voltage_Reference_Init();
+ 105   1          Port_IO_Init();
+ 106   1          Oscillator_Init();
+ 107   1          Interrupts_Init();
+ 108   1      }
+ 109          
+ 110          
+ 111          main()
+ 112          {       
+ 113   1               unsigned char key=0,flag=0,y,m=0;
+ 114   1               unsigned char nowHour=0,nowMinute=0,nowSecond=0;
+ 115   1               unsigned char str[20];
+ 116   1               unsigned char nowTime[10]="NowTime ";
+ 117   1               unsigned int i,totalTime=0;
+C51 COMPILER V9.00   MAIN                                                                  07/12/2019 16:16:53 PAGE 3   
+
+ 118   1      
+ 119   1               //初始化
+ 120   1               Init_Device();
+ 121   1               newLCDInit();
+ 122   1      
+ 123   1               //清屏显示
+ 124   1               Clear();
+ 125   1           DrawcharS("Project-3",1,4);
+ 126   1           DrawcharS("3.21--3.28",2,4);        
+ 127   1               for(i=0;i<255;i++)
+ 128   1               {
+ 129   2                              Delayms(100);
+ 130   2               }
+ 131   1               Clear();                               
+ 132   1      
+ 133   1      
+ 134   1               while(1)
+ 135   1               {
+ 136   2                      
+ 137   2                      DrawcharS("Press the button",1,0);
+ 138   2                      P6=0xFF;
+ 139   2                      P7=0xFF;
+ 140   2                      key=KeyScan();
+ 141   2                      if(key!=0)
+ 142   2                      {
+ 143   3                              switch(key)
+ 144   3                              {
+ 145   4                                      case 1: //软件延时，全亮或全灭
+ 146   4                                                      Clear(); //清屏 
+ 147   4                                                      
+ 148   4                                                      while(1)
+ 149   4                                                      {
+ 150   5                                                              DrawcharS("Light up (1)",1,0);
+ 151   5                                                              DelayOneSecond();
+ 152   5                                                              P6^=0xFF;
+ 153   5                                                              P7^=0xFF;
+ 154   5                                                              flag=KeyScan();
+ 155   5                                                              if(flag==9)
+ 156   5                                                              break;                                                  
+ 157   5                                                      }
+ 158   4                                                      flag=0;
+ 159   4                                                      Clear();
+ 160   4                                                      break;
+ 161   4                                      case 2: //软件延时,依次点亮
+ 162   4                                                      Clear();
+ 163   4                                                      
+ 164   4                                                      while(1)
+ 165   4                                                      {       
+ 166   5                                                              DrawcharS("Light up (2) ",1,0);
+ 167   5                                                              for(y=0;y<16;y++)        //0-16均要取
+ 168   5                                                              {
+ 169   6                                                                      flag=KeyScan();
+ 170   6                                                                      if(flag==9)
+ 171   6                                                                      {       
+ 172   7                                                                              m=1;
+ 173   7                                                                              break;
+ 174   7                                                                      }
+ 175   6                                                              
+ 176   6                                                                      if(y<8)
+ 177   6                                                                              ClrBit(P6,y);
+ 178   6                                                                      else
+ 179   6                                                                              ClrBit(P7,y-8);
+C51 COMPILER V9.00   MAIN                                                                  07/12/2019 16:16:53 PAGE 4   
+
+ 180   6                                                                              DelayOneSecond();
+ 181   6                                                              }
+ 182   5                                                              P6=0xFF;
+ 183   5                                                              P7=0xFF;
+ 184   5                                                              if(m==1)
+ 185   5                                                              {       
+ 186   6                                                                      m=0;
+ 187   6                                                                      break;
+ 188   6                                                              }
+ 189   5                                                                                                              
+ 190   5                                                      }
+ 191   4                                                      flag=0;
+ 192   4                                                      Clear();
+ 193   4                                                      break;
+ 194   4                                      case 3: //软件延时，P6.0->P6.7,P7.7->P7.0 两灯点亮并且循环移动
+ 195   4                                                      Clear();
+ 196   4                                                      while(1)
+ 197   4                                                      {
+ 198   5                                                              DrawcharS("Light up (3)",1,0);
+ 199   5                                                              
+ 200   5                                                              for(y=0;y<16;y++)
+ 201   5                                                              {       
+ 202   6                                                                      flag=KeyScan();
+ 203   6                                                                      if(flag==9)
+ 204   6                                                                      {       
+ 205   7                                                                              m=1;
+ 206   7                                                                              break;
+ 207   7                                                                      }
+ 208   6      
+ 209   6                                                                      //写灯亮逻辑
+ 210   6                                                                      i=(0x8000>>y)|(0x0001<<y);
+ 211   6                                                                      P7=~(i/256);
+ 212   6                                                                      P6=~(i%256);
+ 213   6                                                                      //
+ 214   6      
+ 215   6                                                                      DelayOneSecond();
+ 216   6                                                              }
+ 217   5      
+ 218   5                                                              P6=0xFF;
+ 219   5                                                              P7=0xFF;
+ 220   5                                                              if(m==1)
+ 221   5                                                              {       
+ 222   6                                                                      m=0;
+ 223   6                                                                      break;
+ 224   6                                                              }                                                       
+ 225   5                                                      }
+ 226   4                                                      flag=0;
+ 227   4                                                      Clear();
+ 228   4                                                      break;
+ 229   4                                      case 4: //软件延时，P6.0->P6.7,P7.7->P7.0 两灯点亮并且循环移动，移动速率不同。
+ 230   4                                                      Clear();
+ 231   4                                                      while(1)
+ 232   4                                                      {
+ 233   5                                                              DrawcharS("Light up (4)",1,0);
+ 234   5                                                              for(y=0;y<32;y++)
+ 235   5                                                              {
+ 236   6                                                                      flag=KeyScan();
+ 237   6                                                                      if(flag==9)
+ 238   6                                                                      {       
+ 239   7                                                                              m=1;
+ 240   7                                                                              break;
+ 241   7                                                                      }
+C51 COMPILER V9.00   MAIN                                                                  07/12/2019 16:16:53 PAGE 5   
+
+ 242   6                                                                                                                              
+ 243   6                                                                      //写灯亮逻辑
+ 244   6                                                                      i=(0x8000>>y%16)|(0x0001<<(y/2));
+ 245   6                                                                      P7=~(i/256);
+ 246   6                                                                      P6=~(i%256);
+ 247   6                                                                      //
+ 248   6      
+ 249   6                                                                      DelayOneSecond();
+ 250   6                                                              }
+ 251   5      
+ 252   5                                                              P6=0xFF;
+ 253   5                                                              P7=0xFF;
+ 254   5                                                              if(m==1)
+ 255   5                                                              {       
+ 256   6                                                                      m=0;
+ 257   6                                                                      break;
+ 258   6                                                              }                                                       
+ 259   5                                                      }
+ 260   4                                                      flag=0;
+ 261   4                                                      Clear();
+ 262   4                                                      break;
+ 263   4                                      case 5: //软件延时测试
+ 264   4                                                      Clear();
+ 265   4                                                      while(1)
+ 266   4                                                      {
+ 267   5                                                              nowHour=totalTime/3600; nowMinute=(totalTime%3600)/60; nowSecond=(totalTime%3600)%60;
+ 268   5                                                              CompositeChars(nowHour,nowMinute,nowSecond,nowTime,str);
+ 269   5                                                              DrawcharS(str,1,0);
+ 270   5                                                              DelayOneSecond();
+ 271   5                                                              totalTime++;
+ 272   5                                                              
+ 273   5                                                              flag=KeyScan();
+ 274   5                                                              if(flag==9)
+ 275   5                                                              break;                                                  
+ 276   5                                                      }
+ 277   4                                                      flag=0;
+ 278   4                                                      Clear();
+ 279   4                                                      break;  
+ 280   4                                      case 6://定时器延时，依次点亮
+ 281   4                                                      Clear();
+ 282   4                                                      OpenTimer3();
+ 283   4                                                      sTotal=0;
+ 284   4                                                      while(1)
+ 285   4                                                      {
+ 286   5                                                              y=sTotal%17;
+ 287   5                                                              DrawcharS("Light up (1-1)",1,0);
+ 288   5                                                              if(y<8)
+ 289   5                                                                              ClrBit(P6,y);
+ 290   5                                                              if(8<=y<16)
+ 291   5                                                                              ClrBit(P7,y-8);
+ 292   5                                                              if(y==16)
+ 293   5                                                                      {       
+ 294   6                                                                              P6=0xFF;
+ 295   6                                                                              P7=0xFF;
+ 296   6                                                                      }                                               
+ 297   5                                                              flag=KeyScan();
+ 298   5                                                              if(flag==9)
+ 299   5                                                              break;
+ 300   5                                                      }
+ 301   4                                                      flag=0;
+ 302   4                                                      Clear();
+ 303   4                                                      break;
+C51 COMPILER V9.00   MAIN                                                                  07/12/2019 16:16:53 PAGE 6   
+
+ 304   4                                      case 7: //软件延时，P6.0->P6.7,P7.7->P7.0两灯依次点亮。点亮速率不同
+ 305   4                                                      Clear();
+ 306   4                                                      while(1)
+ 307   4                                                      {
+ 308   5                                                              DrawcharS("Light up (7)",1,0);
+ 309   5                                                              for(y=0;y<16;y++)
+ 310   5                                                              {
+ 311   6                                                                      flag=KeyScan();
+ 312   6                                                                      if(flag==9)
+ 313   6                                                                      {       
+ 314   7                                                                              m=1;
+ 315   7                                                                              break;
+ 316   7                                                                      }
+ 317   6                                                                                                                              
+ 318   6                                                                      if(y==8)
+ 319   6                                                                      {       
+ 320   7                                                                              P6=0xFF;
+ 321   7                                                                              ClrBit(P6,y%8);
+ 322   7                                                                      }
+ 323   6                                                                      ClrBit(P6,y%8);
+ 324   6                                                                      if(y%2==0)
+ 325   6                                                                      ClrBit(P7,7-y/2);
+ 326   6      
+ 327   6                                                                      DelayOneSecond();
+ 328   6                                                              }
+ 329   5      
+ 330   5                                                              P6=0xFF;
+ 331   5                                                              P7=0xFF;
+ 332   5                                                              if(m==1)
+ 333   5                                                              {       
+ 334   6                                                                      m=0;
+ 335   6                                                                      break;
+ 336   6                                                              }                                                       
+ 337   5                                                      }
+ 338   4                                                      flag=0;
+ 339   4                                                      Clear();
+ 340   4                                                      break;
+ 341   4                                      default: break;
+ 342   4                              
+ 343   4                              
+ 344   4                              }
+ 345   3      
+ 346   3                      
+ 347   3                      
+ 348   3                      }
+ 349   2               }                 
+ 350   1                 
+ 351   1      }
+ 352          
+ 353          void DelayOneSecond(void)//延时1s
+ 354          {
+ 355   1       unsigned long a;
+ 356   1       for(a=0;a<153600;a++);
+ 357   1      
+ 358   1      }
+ 359          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1139    ----
+   CONSTANT SIZE    =    129    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.00   MAIN                                                                  07/12/2019 16:16:53 PAGE 7   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      45
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

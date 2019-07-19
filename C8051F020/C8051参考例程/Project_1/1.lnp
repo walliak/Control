@@ -1,0 +1,6 @@
+"key.obj",
+"lcd.obj",
+"main.obj",
+"adc.obj" 
+TO "1" 
+RAMSIZE(256) 
