@@ -869,11 +869,11 @@ ARM Macro Assembler    Page 14
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=..\obj\startup_stm32f40_41xxx.d -o..\obj\startup_stm32f40_41xxx
-.o -I"E:\WindowsDesktop\STM32F4\实验6 PWM输出实验\USER\RTE" -ID:\keilMDK\ARM\PA
-CK\Keil\STM32F4xx_DFP\2.13.0 -ID:\KeilMDK\ARM\CMSIS\Include -ID:\keilMDK\ARM\PA
-CK\Keil\STM32F4xx_DFP\2.13.0\Device\Include --predefine="__UVISION_VERSION SETA
- 514" --predefine="STM32F407xx SETA 1" --list=..\obj\startup_stm32f40_41xxx.lst
- ..\CORE\startup_stm32f40_41xxx.s
+.o -IE:\WindowsDesktop\Control\STM32F429\F429_Example\F429_Example_Pwm\USER\RTE
+ -ID:\keilMDK\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0 -ID:\KeilMDK\ARM\CMSIS\Include
+ -ID:\keilMDK\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Device\Include --predefine="__
+UVISION_VERSION SETA 514" --predefine="STM32F407xx SETA 1" --list=..\obj\startu
+p_stm32f40_41xxx.lst ..\CORE\startup_stm32f40_41xxx.s
 
 
 

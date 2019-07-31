@@ -3,7 +3,7 @@
 ..\obj\motor.o: ..\SYSTEM\sys\sys.h
 ..\obj\motor.o: ..\USER\stm32f4xx.h
 ..\obj\motor.o: ..\CORE\core_cm4.h
-..\obj\motor.o: E:\tools\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\motor.o: D:\KeilMDK\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\motor.o: ..\CORE\core_cmInstr.h
 ..\obj\motor.o: ..\CORE\core_cmFunc.h
 ..\obj\motor.o: ..\CORE\core_cm4_simd.h

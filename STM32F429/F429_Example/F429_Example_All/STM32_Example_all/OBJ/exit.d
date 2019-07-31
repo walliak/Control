@@ -3,7 +3,7 @@
 ..\obj\exit.o: ..\SYSTEM\sys\sys.h
 ..\obj\exit.o: ..\USER\stm32f4xx.h
 ..\obj\exit.o: ..\CORE\core_cm4.h
-..\obj\exit.o: E:\tools\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\exit.o: D:\KeilMDK\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\exit.o: ..\CORE\core_cmInstr.h
 ..\obj\exit.o: ..\CORE\core_cmFunc.h
 ..\obj\exit.o: ..\CORE\core_cm4_simd.h
@@ -39,5 +39,5 @@
 ..\obj\exit.o: ..\HARDWARE\KEY\key.h
 ..\obj\exit.o: ..\SYSTEM\delay\delay.h
 ..\obj\exit.o: ..\HARDWARE\LCD\lcd.h
-..\obj\exit.o: E:\tools\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\exit.o: D:\KeilMDK\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\exit.o: ..\HARDWARE\TIMER\timer.h
