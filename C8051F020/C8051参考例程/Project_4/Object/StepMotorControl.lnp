@@ -1,0 +1,11 @@
+".\Object\STARTUP.obj",
+".\Object\main.obj",
+".\Object\Character.obj",
+".\Object\CompositeChars.obj",
+".\Object\Init.obj",
+".\Object\key.obj",
+".\Object\lcd.obj",
+".\Object\Timer3.obj" 
+TO ".\Object\StepMotorControl" 
+PRINT(".\List\StepMotorControl.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 

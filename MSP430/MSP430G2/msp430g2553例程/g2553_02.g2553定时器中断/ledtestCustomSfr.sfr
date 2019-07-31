@@ -1,0 +1,14 @@
+[Sfr]
+sfr = "BCSCTL3",	"Memory",	0x53,	1,	base=16,	modified
+sfr = "FCTL1",	"Memory",	0x128,	2,	base=16,	modified
+sfr = "TA0R",	"Memory",	0x170,	2,	base=16,	modified
+sfr = "UCA0BR0__SPI",	"Memory",	0x62,	1,	base=16,	modified
+sfr = "UCB0CTL1",	"Memory",	0x69,	1,	base=16,	modified
+sfr = "UCB0STAT",	"Memory",	0x6d,	1,	base=16,	modified
+sfr = "UCB0I2COA",	"Memory",	0x118,	2,	base=16,	modified
+sfr = "CALBC1_1MHZ",	"Memory",	0x10ff,	1,	base=16,	modified
+
+
+[SfrGroupInfo]
+group = "Custom", "BCSCTL3", "FCTL1"
+group = "Custom", "TA0R", "UCA0BR0__SPI", "UCB0CTL1", "UCB0STAT", "UCB0I2COA", "CALBC1_1MHZ"
